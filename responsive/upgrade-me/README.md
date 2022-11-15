@@ -1,3 +1,5 @@
-# Responsive design assignment project
+# Javkhlant Altankhuyag
 
-https://temuulennibno.github.io/assignment-responsive/
+## Team Green
+
+https://enrosek.github.io/pinecone-assignments/responsive/upgrade-me/

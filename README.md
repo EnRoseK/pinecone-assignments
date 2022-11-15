@@ -1,3 +1,3 @@
 # Javkhlant Altankhuyag
 
-## Green Team
+## Team Green
