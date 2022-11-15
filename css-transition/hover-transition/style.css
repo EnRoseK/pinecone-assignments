@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.item {
+  margin-top: 50px;
+}
+
+.box-1 {
+  width: 150px;
+  height: 150px;
+  background: blue;
+  transition: 1.5s all ease-in-out;
+}
+
+.box-1:active {
+  width: 100vw;
+}
+
+.box-2 {
+  width: 150px;
+  height: 150px;
+  background: green;
+  transition: 1.5s all ease-in-out;
+}
+
+.box-2:hover {
+  width: 100vw;
+}

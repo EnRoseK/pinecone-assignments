@@ -1,0 +1,40 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.images {
+  display: flex;
+  gap: 20px;
+  justify-content: space-evenly;
+}
+
+.images img {
+  max-width: 13%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 30px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .images {
+    flex-wrap: wrap;
+  }
+
+  .images img {
+    max-width: 30%;
+  }
+}
+
+@media screen and (min-width: 348px) and (max-width: 767px) {
+  .images {
+    flex-wrap: wrap;
+  }
+
+  .images img {
+    max-width: 100%;
+  }
+}
