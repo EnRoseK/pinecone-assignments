@@ -1,0 +1,61 @@
+body {
+  background: rgba(255, 255, 0, 0.6);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1::before {
+  content: "XXL (Extra Extra Large) => 1400px";
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1399px) {
+  body {
+    background: rgba(0, 0, 255, 0.5);
+  }
+
+  h1::before {
+    content: "XL (Extra Large) => 1200px";
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  body {
+    background: rgba(255, 0, 0, 0.5);
+  }
+
+  h1::before {
+    content: "LG (Large) => 992px";
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  body {
+    background: rgba(0, 255, 0, 0.5);
+  }
+
+  h1::before {
+    content: "MD (Medium) => 768px";
+  }
+}
+
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  body {
+    background: rgba(0, 255, 255, 0.5);
+  }
+
+  h1::before {
+    content: "SM (Small) => 576px";
+  }
+}
+
+@media screen and (max-width: 575px) {
+  body {
+    background: rgba(255, 0, 255, 0.5);
+  }
+
+  h1::before {
+    content: "XS (Extra Small) < 576px";
+  }
+}
