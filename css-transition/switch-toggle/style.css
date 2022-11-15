@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.outer {
+  position: relative;
+  background: #ddd;
+  width: 150px;
+  height: 60px;
+  border-radius: 30px;
+  border: 1px solid black;
+  transition: 0.5s all ease-in-out;
+}
+
+.inner {
+  width: 58px;
+  height: 58px;
+  background: white;
+  border-radius: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.5s all ease-in-out;
+}
+
+.outer:active {
+  background: blue;
+  border: none;
+}
+
+.outer:active .inner {
+  left: 90px;
+}
