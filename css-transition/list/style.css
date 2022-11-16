@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  background: cyan;
+  height: 45vh;
+  width: 25vw;
+}
+
+li {
+  border-top: 1px solid green;
+  padding: 10px 20px;
+  transition: 1.5s all ease-in-out;
+}
+
+a {
+  text-decoration: none;
+  color: brown;
+  font-size: 24px;
+  transition: 1s all ease-in-out;
+}
+
+li:hover {
+  background: orange;
+  padding: 30px;
+}
+
+a:active {
+  font-size: 40px;
+}
