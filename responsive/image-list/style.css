@@ -19,11 +19,11 @@ body {
 
 .images {
   display: flex;
-  justify-content: space-between;
+  gap: 20px;
 }
 
 .images img {
-  width: 14%;
+  width: calc((100% - 100px) / 6);
   height: 300px;
   border-radius: 20px;
   object-fit: cover;
@@ -39,6 +39,10 @@ body {
 
 .sidebar {
   width: 30%;
+  max-height: 800px;
+  background: #ddd;
+  padding: 20px;
+  border-radius: 20px;
 }
 
 .article {
@@ -70,11 +74,20 @@ body {
   }
 
   .images img {
-    width: 30%;
+    width: calc((100% - 40px) / 3);
   }
 
-  .images img:not(:nth-child(n + 4)) {
-    margin-bottom: 20px;
+  .row {
+    flex-wrap: wrap;
+  }
+
+  .articles,
+  .sidebar {
+    width: 100%;
+  }
+
+  .sidebar {
+    margin: 0 20px 20px 20px;
   }
 }
 
@@ -89,7 +102,16 @@ body {
     height: 250px;
   }
 
-  .images img:not(:last-child) {
-    margin-bottom: 20px;
+  .row {
+    flex-wrap: wrap;
+  }
+
+  .articles,
+  .sidebar {
+    width: 100%;
+  }
+
+  .sidebar {
+    margin: 0 20px 20px 20px;
   }
 }
