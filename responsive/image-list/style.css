@@ -68,6 +68,15 @@ body {
   display: block;
 }
 
+.article-content h2 {
+  font-size: 28px;
+}
+
+.sidebar h4 {
+  font-size: 28px;
+  margin: 10px 0;
+}
+
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .images {
     flex-wrap: wrap;
@@ -75,6 +84,10 @@ body {
 
   .images img {
     width: calc((100% - 40px) / 3);
+  }
+
+  .article-content h2 {
+    font-size: 26px;
   }
 
   .row {
@@ -88,6 +101,10 @@ body {
 
   .sidebar {
     margin: 0 20px 20px 20px;
+  }
+
+  .sidebar h4 {
+    font-size: 24px;
   }
 }
 
@@ -102,6 +119,10 @@ body {
     height: 250px;
   }
 
+  .article-content h2 {
+    font-size: 24px;
+  }
+
   .row {
     flex-wrap: wrap;
   }
@@ -113,5 +134,9 @@ body {
 
   .sidebar {
     margin: 0 20px 20px 20px;
+  }
+
+  .sidebar h4 {
+    font-size: 20px;
   }
 }
