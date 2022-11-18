@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Form</title>
+  </head>
+  <body>
+    <ul>
+      <li><input type="text" />Text</li>
+      <li><input type="number" />Number</li>
+      <li><input type="date" />Date</li>
+      <li><input type="password" />Password</li>
+      <li><input type="color" />Color</li>
+      <li><input type="radio" />Radio</li>
+      <li><input type="checkbox" />Checkbox</li>
+      <li><input type="hidden" />Hidden</li>
+      <li><input type="range" />Range</li>
+    </ul>
+
+    <hr />
+
+    <fieldset>
+      <legend>Your information</legend>
+
+      <form action="/index.html" method="get">
+        <h5>Gender</h5>
+        <label>
+          <input type="radio" value="male" name="gender" />
+          Male
+        </label>
+
+        <label>
+          <input type="radio" value="female" name="gender" />
+          Female
+        </label>
+
+        <label>
+          <input type="radio" value="other" name="gender" />
+          Other
+        </label>
+
+        <h5>Hobby</h5>
+        <label>
+          <input type="checkbox" value="sport" name="hobby" />
+          Sport
+        </label>
+
+        <label>
+          <input type="checkbox" value="car" name="hobby" />
+          Car
+        </label>
+
+        <label>
+          <input type="checkbox" value="hiking" name="hobby" />
+          Hiking
+        </label>
+
+        <br /><br />
+
+        <label>
+          Name
+          <input
+            type="text"
+            name="name"
+            minlength="2"
+            maxlength="10"
+            placeholder="Your Name"
+          />
+        </label>
+
+        <br /><br />
+
+        <label>
+          Message
+          <textarea
+            name="message"
+            cols="100"
+            rows="10"
+            style="resize: none"
+          ></textarea>
+        </label>
+
+        <br /><br />
+
+        <label>
+          Gender
+          <select name="gender">
+            <option hidden selected>Choose one</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </label>
+
+        <br /><br />
+
+        <!-- <input type="submit" value="Submit"> -->
+        <button type="submit">Submit</button>
+      </form>
+    </fieldset>
+  </body>
+</html>

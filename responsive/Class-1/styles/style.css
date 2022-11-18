@@ -1,0 +1,9 @@
+h1 {
+  font-size: 5vw;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  /* width: 100%; */
+}

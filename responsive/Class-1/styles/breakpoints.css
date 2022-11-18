@@ -1,0 +1,27 @@
+body {
+  background: rgba(0, 0, 0, 1);
+}
+
+@media only screen and (max-width: 1200px) {
+  body {
+    background: rgba(0, 0, 0, 0.8);
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  body {
+    background: rgba(0, 0, 0, 0.6);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+    background: rgba(0, 0, 0, 0.4);
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  body {
+    background: rgba(0, 0, 0, 0.2);
+  }
+}
