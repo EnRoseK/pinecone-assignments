@@ -16,9 +16,22 @@
       height: 0;
       padding-bottom: 56.25%;
       position: relative;
+      overflow: hidden;
     }
 
     .image-wrapper img {
+      object-fit: cover;
+    }
+
+    .profile-wrapper {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile-wrapper img {
       object-fit: cover;
     }
   </style>
@@ -26,6 +39,7 @@
 </head>
 
 <body>
+  
   <header class="navbar navbar-dark navbar-expand-lg bg-dark py-3">
     <div class="container">
       <a class="navbar-brand" href="#">Logo Brand</a>
@@ -56,7 +70,7 @@
   <section class="bg-dark py-5">
     <div class="container">
       <div class="row gx-2 align-items-center">
-        <div class="col-12 col-sm-6 text-center text-sm-start">
+        <div class="col-12 col-sm-6 text-center text-sm-start px-5 px-sm-0">
           <h1 class="text-white mb-4">Better Solutions <span class="text-warning">For Your Business</span></h1>
           <p class="text-white fs-5 mb-4">We're the integrated learning solution that delivers impactful programs for
             everyone.
@@ -64,7 +78,7 @@
           <button class="btn btn-lg btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal">Get
             Started</button>
 
-          <div class="modal" tabindex="-1" id="modal">
+          <div class="modal fade" tabindex="-1" id="modal">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
@@ -138,21 +152,23 @@
 
   <section class="bg-light py-5">
     <div class="container">
-      <div class="row gx-5 align-items-center">
-        <div class="col-6">
+      <div class="row g-5 align-items-center">
+        <div class="col-12 col-sm-6 px-5 px-sm-0">
           <img src="./img/undraw_elements_re_25t9.svg" alt="" class="img-fluid">
         </div>
 
-        <div class="col-6">
-          <h2 class="text-uppercase mb-3">About Us</h2>
-          <p class="fs-5 mb-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus provident veniam nam
-            quidem
-            rerum corrupti?</p>
-          <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio libero officia doloremque
-            iure maxime
-            asperiores at voluptatibus quo est beatae excepturi optio recusandae voluptas doloribus sapiente voluptate
-            neque, porro quisquam?</p>
-          <button class="btn btn btn-outline-secondary"><i class="bi bi-chevron-right"></i> Read More</button>
+        <div class="col-12 col-sm-6 px-5 px-sm-0">
+          <div class="px-5 px-sm-0">
+            <h2 class="text-uppercase mb-3">About Us</h2>
+            <p class="fs-5 mb-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus provident veniam nam
+              quidem
+              rerum corrupti?</p>
+            <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio libero officia doloremque
+              iure maxime
+              asperiores at voluptatibus quo est beatae excepturi optio recusandae voluptas doloribus sapiente voluptate
+              neque, porro quisquam?</p>
+            <button class="btn btn btn-outline-secondary"><i class="bi bi-chevron-right"></i> Read More</button>
+          </div>
         </div>
       </div>
     </div>
@@ -160,22 +176,24 @@
 
   <section class="bg-dark py-5">
     <div class="container">
-      <div class="row gx-5 align-items-center">
-        <div class="col-6">
-          <h2 class="text-uppercase text-white mb-3">Services</h2>
-          <p class="fs-5 mb-3 text-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus provident
-            veniam nam
-            quidem
-            rerum corrupti?</p>
-          <p class="mb-4 text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio libero officia
-            doloremque
-            iure maxime
-            asperiores at voluptatibus quo est beatae excepturi optio recusandae voluptas doloribus sapiente voluptate
-            neque, porro quisquam?</p>
-          <button class="btn btn btn-outline-light"><i class="bi bi-chevron-right"></i> Read More</button>
+      <div class="row g-5 align-items-center">
+        <div class="col-12 col-sm-6 px-5 px-sm-0">
+          <div class="px-5 px-sm-0">
+            <h2 class="text-uppercase text-white mb-3">Services</h2>
+            <p class="fs-5 mb-3 text-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus provident
+              veniam nam
+              quidem
+              rerum corrupti?</p>
+            <p class="mb-4 text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio libero officia
+              doloremque
+              iure maxime
+              asperiores at voluptatibus quo est beatae excepturi optio recusandae voluptas doloribus sapiente voluptate
+              neque, porro quisquam?</p>
+            <button class="btn btn btn-outline-light"><i class="bi bi-chevron-right"></i> Read More</button>
+          </div>
         </div>
 
-        <div class="col-6">
+        <div class="col-12 col-sm-6 px-5 px-sm-0">
           <img src="./img/undraw_elements_re_25t9.svg" alt="" class="img-fluid">
         </div>
       </div>
@@ -186,7 +204,7 @@
     <div class="container">
       <h2 class="text-center">FAQ</h2>
 
-      <div class="accordion accordion-flush" id="faq">
+      <div class="accordion accordion-flush px-5 px-sm-0" id="faq">
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse"
@@ -216,11 +234,204 @@
             </div>
           </div>
         </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse"
+              data-bs-target="#item2">
+              What do i need to know?
+            </button>
+          </h2>
+          <div id="item2" class="accordion-collapse collapse" data-bs-parent="#faq">
+            <div class="accordion-body bg-light">Placeholder content for this accordion, which is intended to
+              demonstrate the
+              <code>.accordion-flush</code> class. This is the first item's accordion body.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse"
+              data-bs-target="#item2">
+              How do I sign up?
+            </button>
+          </h2>
+          <div id="item2" class="accordion-collapse collapse" data-bs-parent="#faq">
+            <div class="accordion-body bg-light">Placeholder content for this accordion, which is intended to
+              demonstrate the
+              <code>.accordion-flush</code> class. This is the first item's accordion body.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse"
+              data-bs-target="#item2">
+              Do you help me to find the job?
+            </button>
+          </h2>
+          <div id="item2" class="accordion-collapse collapse" data-bs-parent="#faq">
+            <div class="accordion-body bg-light">Placeholder content for this accordion, which is intended to
+              demonstrate the
+              <code>.accordion-flush</code> class. This is the first item's accordion body.
+            </div>
+          </div>
+        </div>
       </div>
 
 
     </div>
   </section>
+
+  <section class="bg-secondary py-5 px-5 px-sm-0">
+    <div class="container text-center">
+      <h2 class="text-white">Our Team</h2>
+      <p class="text-white mb-5">We listened to our people about what and how they wanted to learn, and most made it clear business was their preferred platform.</p>
+
+      <div class="row g-3 px-5 px-sm-0">
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card bg-white align-items-center pt-4 px-2">
+            <div class="profile-wrapper">
+              <img class="position-absolute top-0 start-0 w-100 h-100" src="./img/alexander-hipp-iEEBWgY_6lA-unsplash.jpg" alt="">   
+            </div>
+
+            <div class="card-body">
+              <h3>John Doe</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti, amet quo provident voluptatum ipsa exercitationem!</p>
+              <a class="text-dark" href="#"><i class="bi bi-twitter me-2"></i></a>              
+              <a class="text-dark" href="#"><i class="bi bi-facebook me-2"></i></a>
+              <a class="text-dark" href="#"><i class="bi bi-linkedin me-2"></i></a>
+              <a class="text-dark" href="#"><i class="bi bi-instagram"></i></a>         
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card bg-white align-items-center pt-4 px-2">
+            <div class="profile-wrapper">
+              <img class="position-absolute top-0 start-0 w-100 h-100" src="./img/michael-dam-mEZ3PoFGs_k-unsplash.jpg" alt="">   
+            </div>
+
+            <div class="card-body">
+              <h3>Jane Doe</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti, amet quo provident voluptatum ipsa exercitationem!</p>
+              <a class="text-dark" href="#"><i class="bi bi-twitter me-2"></i></a>              
+              <a class="text-dark" href="#"><i class="bi bi-facebook me-2"></i></a>
+              <a class="text-dark" href="#"><i class="bi bi-linkedin me-2"></i></a>
+              <a class="text-dark" href="#"><i class="bi bi-instagram"></i></a>         
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card bg-white align-items-center pt-4 px-2">
+            <div class="profile-wrapper">
+              <img class="position-absolute top-0 start-0 w-100 h-100" src="./img/jurica-koletic-7YVZYZeITc8-unsplash.jpg" alt="">   
+            </div>
+
+            <div class="card-body">
+              <h3>Steve Smith</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti, amet quo provident voluptatum ipsa exercitationem!</p>
+              <a class="text-dark" href="#"><i class="bi bi-twitter me-2"></i></a>              
+              <a class="text-dark" href="#"><i class="bi bi-facebook me-2"></i></a>
+              <a class="text-dark" href="#"><i class="bi bi-linkedin me-2"></i></a>
+              <a class="text-dark" href="#"><i class="bi bi-instagram"></i></a>         
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card bg-white align-items-center pt-4 px-2">
+            <div class="profile-wrapper">
+              <img class="position-absolute top-0 start-0 w-100 h-100" src="./img/dillon-kydd-J6MK67MIs0I-unsplash.jpg" alt="">   
+            </div>
+
+            <div class="card-body">
+              <h3>Sara Smith</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti, amet quo provident voluptatum ipsa exercitationem!</p>
+              <a class="text-dark" href="#"><i class="bi bi-twitter me-2"></i></a>              
+              <a class="text-dark" href="#"><i class="bi bi-facebook me-2"></i></a>
+              <a class="text-dark" href="#"><i class="bi bi-linkedin me-2"></i></a>
+              <a class="text-dark" href="#"><i class="bi bi-instagram"></i></a>         
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 px-5 px-sm-0">
+    <div class="container">
+      <h2 class="text-center mb-4">Contact Info</h2>
+      <ul class="list-unstyled fs-5 ms-3">
+        <li class="my-1"><span class="fw-bold">Main Location: </span>50 Main St, Boston, MA</li>
+        <hr>
+        <li class="my-1"><span class="fw-bold">Enrollment Phone: </span>(555) 555-5555</li>
+        <hr>
+        <li class="my-1"><span class="fw-bold">Student Phone: </span>(333) 333-3333</li>
+        <hr>
+        <li class="my-1"><span class="fw-bold">Enrollment Email: </span>(555) enroll@frontendbc.test</li>
+        <hr>
+        <li class="my-1"><span class="fw-bold">Student Email: </span>student@frontendbc.test</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="bg-dark pt-5 pb-3 px-5 px-sm-0">
+    <div class="container">
+      <div class="row mb-5 g-3">
+        <div class="col-12 col-sm-6 col-lg-3 text-white">
+          <h3>Logo Brand</h3>
+          <p>
+            A108, Adam Street <br>
+            New York, NY535022 <br>
+            United States
+          </p>
+          <p>
+            <span class="fw-bold">Phone:</span> +1 5589 55488 55 <br>
+            <span class="fw-bold">Email:</span> info@example.com
+          </p>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+          <h3 class="text-white">Useful Links</h3>
+          <ul class="list-unstyled ms-3">
+            <li class="mb-2"><a class="text-decoration-none" href="#">Home</a></li>
+            <li class="mb-2"><a class="text-decoration-none" href="#">About us</a></li>
+            <li class="mb-2"><a class="text-decoration-none" href="#">Services</a></li>
+            <li class="mb-2"><a class="text-decoration-none" href="#">Terms of service</a></li>
+            <li class="mb-2"><a class="text-decoration-none" href="#">Privacy policy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+          <h3 class="text-white">Our Services</h3>
+          <ul class="list-unstyled ms-3">
+            <li class="mb-2"><a class="text-decoration-none" href="#">Web Design</a></li>
+            <li class="mb-2"><a class="text-decoration-none" href="#">Web Development</a></li>
+            <li class="mb-2"><a class="text-decoration-none" href="#">Product Management</a></li>
+            <li class="mb-2"><a class="text-decoration-none" href="#">Marketing</a></li>
+            <li class="mb-2"><a class="text-decoration-none" href="#">Graphic Design</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3 text-white">
+          <h3>Our Social Networks</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem molestias alias itaque hic reiciendis suscipit.</p>
+          <div>
+            <a href="#"><i class="bi bi-twitter me-2"></i></a>              
+            <a href="#"><i class="bi bi-facebook me-2"></i></a>
+            <a href="#"><i class="bi bi-linkedin me-2"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a> 
+          </div>
+        </div>
+      </div>
+
+      <p class="text-white text-center">Copyright © 2022 Logo Brand</p>
+    </div>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
