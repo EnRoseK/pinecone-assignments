@@ -12,87 +12,303 @@
 
 <body class="bg-light">
 
-  <section>
-    <div class="container">
-      <h2 class="text-center">Байгууллагын дотоод үйл ажиллагаанд зориулсан судалгаанд тавтай морил</h2>
-      <fieldset>
-        <legend>Ерөнхий мэдээлэл</legend>
-        <form action="./index.html" method="get" class="px-4">
-          <div class="row">
-            <div class="col-6">
-              <div class="mb-3">
-                <label for="lastName">Овог <span class="text-danger">*</span></label>
-                <input type="text" name="lastName" id="lastName" class="form-control" required>
+  <main class="py-5">
+    <section>
+      <div class="container">
+        <h2 class="text-center">Байгууллагын дотоод үйл ажиллагаанд зориулсан судалгаанд тавтай морил</h2>
+        <fieldset>
+          <legend>Ерөнхий мэдээлэл</legend>
+          <form action="./index.html" method="get" class="px-4">
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <div class="mb-3">
+                  <label for="lastName">Овог <span class="text-danger">*</span></label>
+                  <input type="text" name="lastName" id="lastName" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                  <label for="firstName">Нэр <span class="text-danger">*</span></label>
+                  <input type="text" name="firstName" id="firstName" class="form-control" required>
+                </div>
+
+                <div class="mb-2">
+                  <label for="age">Нас <span class="text-danger">*</span></label>
+                  <input type="number" name="age" id="age" class="form-control" required>
+                </div>
               </div>
 
-              <div class="mb-3">
-                <label for="firstName">Нэр <span class="text-danger">*</span></label>
-                <input type="text" name="firstName" id="firstName" class="form-control" required>
-              </div>
+              <div class="col-12 col-md-6">
+                <div class="mb-3">
+                  <label for="aimag">Аймаг</label>
+                  <select class="form-select" id="aimag" name="aimag">
+                    <option selected hidden>Сонгох</option>
+                    <option value="tuv">Төв</option>
+                    <option value="arkhangai">Архангай</option>
+                    <option value="bayn-ulgii">Баян-Өлгий</option>
+                  </select>
+                </div>
 
-              <div class="mb-2">
-                <label for="age">Нас <span class="text-danger">*</span></label>
-                <input type="number" name="age" id="age" class="form-control" required>
+                <div class="mb-3">
+                  <label for="sum">Сум</label>
+                  <select class="form-select" id="sum" name="sum">
+                    <option selected hidden>Сонгох</option>
+                    <option value="tuv">Төв</option>
+                    <option value="arkhangai">Архангай</option>
+                    <option value="bayn-ulgii">Баян-Өлгий</option>
+                  </select>
+                </div>
+
+                <div class="mb-2">
+                  <label for="bag">Баг</label>
+                  <select class="form-select" id="bag" name="bag">
+                    <option selected hidden>Сонгох</option>
+                    <option value="tuv">Төв</option>
+                    <option value="arkhangai">Архангай</option>
+                    <option value="bayn-ulgii">Баян-Өлгий</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-warning">Хадгалах</button>
+          </form>
+        </fieldset>
+        <hr>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <fieldset>
+          <legend>Хэсэг I</legend>
+          <form action="./index.html" method="get" class="px-4">
+            <div class="row mb-3">
+              <label for="ajillagaa1" class="col-12 col-md-3 col-form-label">Үйл Ажиллагаа 1 <span
+                  class="text-danger">*</span></label>
+              <div class="col-12 col-md-6">
+                <input type="text" name="ajillagaa1" id="ajillagaa1" class="form-control" required>
               </div>
             </div>
 
-            <div class="col-6">
-              <div class="mb-3">
-                <label for="aimag">Аймаг</label>
-                <select class="form-select" id="aimag" name="aimag">
-                  <option selected hidden>Сонгох</option>
-                  <option value="tuv">Төв</option>
-                  <option value="arkhangai">Архангай</option>
-                  <option value="bayn-ulgii">Баян-Өлгий</option>
-                </select>
-              </div>
-
-              <div class="mb-3">
-                <label for="sum">Сум</label>
-                <select class="form-select" id="sum" name="sum">
-                  <option selected hidden>Сонгох</option>
-                  <option value="tuv">Төв</option>
-                  <option value="arkhangai">Архангай</option>
-                  <option value="bayn-ulgii">Баян-Өлгий</option>
-                </select>
-              </div>
-
-              <div class="mb-2">
-                <label for="bag">Баг</label>
-                <select class="form-select" id="bag" name="bag">
-                  <option selected hidden>Сонгох</option>
-                  <option value="tuv">Төв</option>
-                  <option value="arkhangai">Архангай</option>
-                  <option value="bayn-ulgii">Баян-Өлгий</option>
-                </select>
+            <div class="row mb-3">
+              <label for="ajillagaa2" class="col-12 col-md-3 col-form-label">Үйл Ажиллагаа 2 <span
+                  class="text-danger">*</span></label>
+              <div class="col-12 col-md-6">
+                <input type="text" name="ajillagaa2" id="ajillagaa2" class="form-control" required>
               </div>
             </div>
-          </div>
-          <button class="btn btn-warning">Хадгалах</button>
-        </form>
-      </fieldset>
-      <hr>
-    </div>
-  </section>
 
-  <section>
-    <div class="container">
-      <fieldset>
-        <legend>Хэсэг I</legend>
-        <form action="./index.html" method="get" class="px-4">
-          <div class="mb-3">
-            <label for="ajillagaa1">Үйл Ажиллагаа 1</label>
-            <input type="text" name="ajillagaa1" id="ajillagaa1" class="form-control">
-          </div>
-          <button class="btn btn-secondary">Хадгалах</button>
-        </form>
-      </fieldset>
-      <hr>
-    </div>
-  </section>
+            <div class="row mb-3">
+              <label for="ajillagaa3" class="col-12 col-md-3 col-form-label">Үйл Ажиллагаа 3</label>
+              <div class="col-12 col-md-6">
+                <input type="text" name="ajillagaa3" id="ajillagaa3" class="form-control" placeholder="Машин" disabled>
+              </div>
+            </div>
 
+            <div class="row mb-3">
+              <label for="ajillagaa4" class="col-12 col-md-3 col-form-label">Үйл Ажиллагаа 4</label>
+              <div class="col-12 col-md-6">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="ajillagaa4" id="yes" value="yes">
+                  <label class="form-check-label" for="yes">
+                    Тийм
+                  </label>
+                </div>
 
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="ajillagaa4" id="no" value="no" checked>
+                  <label class="form-check-label" for="no">
+                    Үгүй
+                  </label>
+                </div>
+              </div>
+            </div>
 
+            <div class="row mb-3">
+              <label for="ajillagaa5" class="col-12 col-md-3 col-form-label">Үйл Ажиллагаа 5</label>
+              <div class="col-12 col-md-6">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="newYear" id="newYear" name="ajillagaa5">
+                  <label class="form-check-label" for="newYear">
+                    Шинэ жил
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="lunar" id="lunar" name="ajillagaa5">
+                  <label class=" form-check-label" for="lunar">
+                    Цагаан сар
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="naadam" id="naadam" name="ajillagaa5">
+                  <label class=" form-check-label" for="naadam">
+                    Наадам
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="childDay" id="childDay" name="ajillagaa5">
+                  <label class=" form-check-label" for="childDay">
+                    Хүүхдийн баяр
+                  </label>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-secondary">Хадгалах</button>
+          </form>
+        </fieldset>
+        <hr>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <fieldset>
+          <legend>Хэсэг II
+            <form action="./index.html" method="get" class="px-4 mt-3">
+              <div class="row gx-4 gy-3 mb-3">
+                <div class="col-12 col-md-6">
+                  <input type="text" name="name" class="form-control" placeholder="Name">
+                </div>
+                <div class="col-12 col-md-6">
+                  <input type="text" name="firstName" class="form-control" placeholder="First Name">
+                </div>
+                <div class="col-12 col-md-6">
+                  <input type="text" name="gender" class="form-control" placeholder="Gender">
+                </div>
+                <div class="col-12 col-md-6">
+                  <input type="text" name="age" class="form-control" placeholder="Age">
+                </div>
+                <div class="col-7">
+                  <input type="text" name="city" class="form-control" placeholder="City">
+                </div>
+                <div class="col">
+                  <input type="text" name="state" class="form-control" placeholder="State">
+                </div>
+                <div class="col">
+                  <input type="text" name="zip" class="form-control" placeholder="Zip">
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">Хадгалах</button>
+            </form>
+          </legend>
+        </fieldset>
+
+        <hr>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <fieldset>
+          <legend>Хэсэг III</legend>
+          <form action="./index.html" method="get" class="px-4">
+            <div class="row gy-2 gy-md-3 mb-3">
+              <div class="col-12 col-md-2">
+                <p>Ногоо</p>
+              </div>
+              <div class="col-12 col-md-4">
+                <p>Сүүлийн 12 сард та [НЭР ТӨРӨЛ] ургац хураан авсан уу?</p>
+              </div>
+              <div class="col-12 col-md-2">
+                <p>Өрхийн хэрэгцээнд хэрэглэсэн (DO1)</p>
+              </div>
+              <div class="col-12 col-md-2">
+                <p>Малын тэжээлд зориулсан (DO2)</p>
+              </div>
+              <div class="col-12 col-md-2">
+                <p>Худалдсан (DO3)</p>
+              </div>
+
+              <div class="col-12 col-md-2">
+                <p>Төмс</p>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="tumsAnswer" id="tumsYes" value="yes">
+                  <label class="form-check-label" for="tumsYes">
+                    Тийм
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="tumsAnswer" id="tumsNo" value="no">
+                  <label class="form-check-label" for="tumsNo">
+                    Үгүй
+                  </label>
+                </div>
+              </div>
+              <div class="col-12 col-md-2">
+                <input type="text" name="tumsUrkh" id="tumsUrkh" placeholder="D01" class="form-control">
+              </div>
+              <div class="col-12 col-md-2">
+                <input type="text" name="tumsMal" id="tumsMal" placeholder="D02" class="form-control">
+              </div>
+              <div class="col-12 col-md-2">
+                <input type="text" name="tumsBuy" id="tumsBuy" placeholder="D03" class="form-control">
+              </div>
+
+              <div class="col-12 col-md-2">
+                <p>Байцаа</p>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="baitsaaAnswer" id="baitsaaYes" value="yes">
+                  <label class="form-check-label" for="baitsaaYes">
+                    Тийм
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="baitsaaAnswer" id="baitsaaNo" value="no">
+                  <label class="form-check-label" for="baitsaaNo">
+                    Үгүй
+                  </label>
+                </div>
+              </div>
+              <div class="col-12 col-md-2">
+                <input type="text" name="baitsaaUrkh" id="baitsaaUrkh" placeholder="D01" class="form-control">
+              </div>
+              <div class="col-12 col-md-2">
+                <input type="text" name="baitsaaMal" id="baitsaaMal" placeholder="D02" class="form-control">
+              </div>
+              <div class="col-12 col-md-2">
+                <input type="text" name="baitsaaBuy" id="baitsaaBuy" placeholder="D03" class="form-control">
+              </div>
+
+              <div class="col-12 col-md-2">
+                <p>Лууван</p>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="luuvanAnswer" id="luuvanYes" value="yes">
+                  <label class="form-check-label" for="luuvanYes">
+                    Тийм
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="luuvanAnswer" id="luuvanNo" value="no">
+                  <label class="form-check-label" for="luuvanNo">
+                    Үгүй
+                  </label>
+                </div>
+              </div>
+              <div class="col-12 col-md-2">
+                <input type="text" name="luuvanUrkh" id="luuvanUrkh" placeholder="D01" class="form-control">
+              </div>
+              <div class="col-12 col-md-2">
+                <input type="text" name="luuvanMal" id="luuvanMal" placeholder="D02" class="form-control">
+              </div>
+              <div class="col-12 col-md-2">
+                <input type="text" name="luuvanBuy" id="luuvanBuy" placeholder="D03" class="form-control">
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-success">Хадгалах</button>
+          </form>
+        </fieldset>
+      </div>
+    </section>
+  </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
