@@ -1,68 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style.css" />
-    <title>Regular Form</title>
-  </head>
-  <body>
-    <fieldset>
-      <legend>Hi form</legend>
-      <form action="./index.html" method="get">
-        <div class="label">
-          <label for="firstName">Нэр</label>
-          <input type="text" name="firstName" id="firstName" />
-        </div>
 
-        <div class="label">
-          <label for="lastName">Овог</label>
-          <input type="text" name="lastName" id="lastName" />
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./style.css" />
+  <title>Regular Form</title>
+</head>
 
-        <div class="label">
-          <label for="email">И-Мэйл</label>
-          <input type="email" name="email" id="email" />
-        </div>
+<body>
+  <fieldset>
+    <legend>Hi form</legend>
+    <form action="./index.html" method="get">
+      <div class="label">
+        <label for="firstName">Нэр</label>
+        <input type="text" name="firstName" id="firstName" />
+      </div>
 
-        <div class="label">
-          <label for="phone">Утас</label>
-          <input type="tel" name="phone" id="phone" />
-        </div>
+      <div class="label">
+        <label for="lastName">Овог</label>
+        <input type="text" name="lastName" id="lastName" />
+      </div>
 
-        <div class="label">
-          <label for="age">Нас</label>
-          <input type="number" name="age" id="age" />
-        </div>
+      <div class="label">
+        <label for="email">И-Мэйл</label>
+        <input type="email" name="email" id="email" />
+      </div>
 
-        <div class="label">
-          <label for="bday">Төрсөн Өдөр</label>
-          <input type="date" name="bday" id="bday" />
-        </div>
+      <div class="label">
+        <label for="phone">Утас</label>
+        <input type="tel" name="phone" id="phone" />
+      </div>
 
-        <div class="label">
-          <label for="gender">Хүйс</label>
-          <select name="gender" id="gender">
-            <option selected hidden>Сонгох...</option>
-            <option value="male">Эрэгтэй</option>
-            <option value="female">Эмэгтэй</option>
-          </select>
-        </div>
+      <div class="label">
+        <label for="age">Нас</label>
+        <input type="number" name="age" id="age" />
+      </div>
 
-        <div class="label">
-          <label for="message">Тодорхойлолт</label>
-          <textarea name="message" id="message" rows="10"></textarea>
-        </div>
+      <div class="label">
+        <label for="bday">Төрсөн Өдөр</label>
+        <input type="date" name="bday" id="bday" />
+      </div>
 
-        <div class="label">
-          <label>Сурагч эсэх</label>
-          <input type="checkbox" name="isStudent" id="isStudent" value="yes" />
-          <label for="isStudent">Тийм</label>
-        </div>
+      <div class="label">
+        <label for="gender">Хүйс</label>
+        <select name="gender" id="gender">
+          <option selected hidden>Сонгох...</option>
+          <option value="male">Эрэгтэй</option>
+          <option value="female">Эмэгтэй</option>
+        </select>
+      </div>
 
-        <input type="submit" value="Илгээх" />
-      </form>
-    </fieldset>
-  </body>
+      <div class="label">
+        <label for="message">Тодорхойлолт</label>
+        <textarea name="message" id="message" rows="10"></textarea>
+      </div>
+
+      <div class="label">
+        <label>Сурагч эсэх</label>
+        <input type="checkbox" name="isStudent" id="isStudent" value="yes" />
+        <label for="isStudent">Тийм</label>
+      </div>
+
+      <input type="submit" value="Илгээх" />
+    </form>
+  </fieldset>
+</body>
+
 </html>
