@@ -38,15 +38,37 @@
 //   console.log("Not leap year");
 // }
 
-const a = 1000,
-  b = 300,
-  c = 4900,
-  d = 59000;
+// const a = 1000,
+//   b = 300,
+//   c = 4900,
+//   d = 59000;
 
-let sum = 0;
+// let sum = 0;
 
-if (a > 999 && a <= 9999) sum = sum + a;
-if (b > 999 && b <= 9999) sum = sum + b;
-if (c > 999 && c <= 9999) sum = sum + c;
+// if (a > 999 && a <= 9999) sum = sum + a;
+// if (b > 999 && b <= 9999) sum = sum + b;
+// if (c > 999 && c <= 9999) sum = sum + c;
 
-console.log(sum);
+// console.log(sum);
+
+const dun = "F";
+
+switch (dun) {
+  case "A":
+    console.log("Та 90-100 хооронд дүн авсан байна.");
+    break;
+  case "B":
+    console.log("Та 80-89 хооронд дүн авсан байна.");
+    break;
+  case "C":
+    console.log("Та 70-79 хооронд дүн авсан байна.");
+    break;
+  case "D":
+    console.log("Та 60-69 хооронд дүн авсан байна.");
+    break;
+  case "F":
+    console.log("Та 59-аас доош дүн авсан байна.");
+    break;
+  default:
+    console.log("Буруу дүн оруулсан байна.");
+}
