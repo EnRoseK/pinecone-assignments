@@ -30,10 +30,23 @@
 // if (num % 2 === 0) console.log("Тэгш");
 // else console.log("Сондгой");
 
-const year = 2022;
+// const year = 2022;
 
-if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
-  console.log("Leap Year");
-} else {
-  console.log("Not leap year");
-}
+// if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+//   console.log("Leap Year");
+// } else {
+//   console.log("Not leap year");
+// }
+
+const a = 1000,
+  b = 300,
+  c = 4900,
+  d = 59000;
+
+let sum = 0;
+
+if (a > 999 && a <= 9999) sum = sum + a;
+if (b > 999 && b <= 9999) sum = sum + b;
+if (c > 999 && c <= 9999) sum = sum + c;
+
+console.log(sum);
