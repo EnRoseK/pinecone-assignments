@@ -1,4 +1,4 @@
-const row = 10;
+const row = Number(prompt('Enter your row number: '));
 
 let i = 1;
 let stars = '';
