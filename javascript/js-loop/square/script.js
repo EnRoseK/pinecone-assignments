@@ -1,26 +1,26 @@
-const row = 10;
+const n = Number(prompt('Enter your number: '));
+let i = 1,
+  stars = '';
 
-let i = 1;
+while (i <= n) {
+  let j = 1;
 
-while (i <= row) {
-  let stars = '',
-    j = 1;
-
-  if (i === 1 || i === row) {
-    while (j <= row) {
-      stars += '*';
+  if (i === 1 || i === n) {
+    while (j <= n) {
+      stars += '* ';
       j++;
     }
   } else {
-    stars += '*';
-    while (j < row - 1) {
-      stars += ' ';
+    stars += '* ';
+    while (j < n - 1) {
+      stars += '  ';
       j++;
     }
-    stars += '*';
+    stars += '* ';
   }
 
-  console.log(stars);
-
+  stars += '\n';
   i++;
 }
+
+console.log(stars);
