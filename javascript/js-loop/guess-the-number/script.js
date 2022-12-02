@@ -6,6 +6,6 @@ while (!isFound) {
   if (input === randNumber) {
     alert('Зөв таалаа!');
     isFound = true;
-  } else if (input > randNumber) alert('Бага тоо оруул');
-  else alert('Их тоо оруул');
+  } else if (input > randNumber) alert('Таны оруулсан тоо их байна');
+  else alert('Таны оруулсан тоо бага байна');
 }

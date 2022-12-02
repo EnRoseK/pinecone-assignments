@@ -1,4 +1,4 @@
-let n = 12345,
+let n = 123456,
   reverseNum = '';
 
 n = n.toString();
