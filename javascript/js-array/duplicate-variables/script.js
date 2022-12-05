@@ -7,7 +7,17 @@ for (let i = 0; i < data.length; i++) {
     if (data[i] === data[j]) count++;
   }
 
-  if (count >= 2) output[output.length] = data[i];
+  if (count >= 2) {
+    let isExist = false;
+    for (let j = 0; j < output.length; j++) {
+      if (output[j] === data[i]) {
+        isExist = true;
+        break;
+      }
+    }
+
+    if (!isExist) output[output.length] = data[i];
+  }
 }
 
 console.log(output);
