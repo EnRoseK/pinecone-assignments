@@ -1,4 +1,4 @@
-const register = 'УЮ99022018';
+const register = 'УЮ95122527';
 
 const isCorrectReg = (register) => {
     return !Number(register.substr(0, 2)) && Number(register.substr(2, 8)) && register.length === 10;
