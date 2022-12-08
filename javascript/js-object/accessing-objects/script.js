@@ -24,6 +24,11 @@ const students = [
         age: 23,
         gender: 'female',
     },
+    {
+        name: 'Гэрэл',
+        age: 23,
+        gender: 'female',
+    },
 ];
 
 const getAgeAverage = (arr) => {
@@ -58,7 +63,7 @@ addLastName(students[0], 'Одгэрэл');
 console.log(students[0]);
 
 const getStudentsWithSameAge = (arr) => {
-    let searchValue;
+    let searchValue = [];
     const result = [];
     for (let i = 0; i < arr.length; i++) {
         let count = 0;
@@ -66,15 +71,16 @@ const getStudentsWithSameAge = (arr) => {
             if (arr[i].age === arr[j].age) count++;
         }
         if (count >= 2) {
-            searchValue = arr[i].age;
-            break;
+            if (!searchValue.includes(arr[i].age)) searchValue.push(arr[i].age);
+            continue;
         }
     }
 
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i].age === searchValue) result.push(arr[i]);
+    for (let j = 0; j < searchValue.length; j++) {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i].age === searchValue[j]) result.push(arr[i]);
+        }
     }
-
     return result;
 };
 
