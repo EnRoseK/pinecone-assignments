@@ -3,7 +3,7 @@ const students = [
     { name: 'Сэд-Эрдэнэ', birthOfYear: 2005, hobby: 'тоглох', single: true },
     { name: 'Хатнаа', birthOfYear: 2002, hobby: 'аялах', single: false },
     { name: 'Индра', birthOfYear: 1997, hobby: 'ууланд алхах', single: true },
-    { name: 'Биндэрьяа', birthOfYear: 1998, hobby: 'унтах', single: false },
+    { name: 'Биндэрьяа', birthOfYear: 2000, hobby: 'код бичих', single: true },
     { name: 'Жавхлант', birthOfYear: 1999, hobby: 'спорт', single: true },
     { name: 'Тэмүүлэн', birthOfYear: 1993, hobby: 'спорт', single: false },
 ];
