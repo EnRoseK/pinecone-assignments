@@ -74,3 +74,22 @@ const searchStudent = (data, key, str) => {
 
 const search = searchStudent(data, 'firstName', 'hat');
 console.log(search);
+
+const DigitSum = (n) => {
+    let sum = 0;
+    while (n > 0) {
+        sum += n % 10;
+        n = Math.floor(n / 10);
+    }
+
+    return sum;
+};
+
+const SubtractSum = (n) => {
+    n -= DigitSum(n);
+    if (n <= 100) {
+        
+    } else return SubtractSum(n);
+};
+
+console.log(SubtractSum(325));
