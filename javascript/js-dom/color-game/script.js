@@ -1,5 +1,5 @@
 let SCORE = 0;
-const TILE_COUNT = 9;
+let TILE_COUNT = 4;
 const TIMER = 10;
 let MILLISECONDS = 0;
 let SECONDS = TIMER;
@@ -13,12 +13,12 @@ const gameOverTarget = document.getElementById('gameOverTarget');
 const restartGameBtn = document.querySelector('.restartGame');
 const startGameBtn = document.querySelector('.startGame');
 
-parent.style.width = '320px';
 let isGameOver = false;
 
 const startGame = () => {
-    SCORE = 0;
-    updateScore(SCORE);
+    TILE_COUNT = 4;
+    parent.style.width = '210px';
+    updateScore(0 - SCORE);
     MILLISECONDS = 0;
     SECONDS = TIMER;
     isGameOver = false;
@@ -63,6 +63,18 @@ const updateTimer = () => {
 const updateScore = (point) => {
     SCORE += point;
     scoreTarget.innerHTML = SCORE;
+    if (SCORE >= 10) {
+        TILE_COUNT = 6;
+        parent.style.width = '320px';
+    }
+    if (SCORE >= 20) TILE_COUNT = 9;
+
+    if (SCORE >= 30) {
+        TILE_COUNT = 12;
+        parent.style.width = '430px';
+    }
+
+    if (SCORE >= 40) TILE_COUNT = 16;
 };
 
 const getRandomNumber = (min, max) => {
