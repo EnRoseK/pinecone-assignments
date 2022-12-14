@@ -1,0 +1,35 @@
+body {
+    background: linear-gradient(#2980b9, #6dd5fa, #ffffff);
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    width: 50vw;
+    padding: 20px;
+    height: 50px;
+    font-size: 24px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    margin-top: 50px;
+}
+
+li {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    font-size: 48px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 36px;
+}

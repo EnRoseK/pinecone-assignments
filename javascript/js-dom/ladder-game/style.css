@@ -1,0 +1,89 @@
+:root {
+    --height: 500vh;
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(#2980b9, #6dd5fa, white);
+}
+
+main {
+    min-height: var(--height);
+    position: relative;
+}
+
+.grass {
+    height: 150px;
+    background: url('./img/grass.jpeg');
+    background-size: contain;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.ladder {
+    height: calc(var(--height) - 150px);
+    background: url('./img/ladder.png');
+    background-size: contain;
+    width: 150px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.progress {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    font-weight: bold;
+    background: white;
+    padding: 15px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width: 72px;
+    text-align: right;
+}
+
+.progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 10px;
+    background: lime;
+    z-index: 999;
+}
+
+.wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    z-index: 998;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.run-box {
+    position: absolute;
+    left: 0;
+    width: 50%;
+    height: 300px;
+    bottom: 90px;
+    overflow: hidden;
+}
+
+.run-box img {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    transition: 0.1s all;
+}
+
+.run-box.active img {
+    right: 100%;
+}

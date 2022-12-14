@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Graduate&display=swap');
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Graduate', cursive;
+    background: orange;
+    flex-direction: column;
+}
+
+.btn {
+    margin-top: 50px;
+    display: flex;
+    width: 14%;
+    justify-content: space-between;
+    font-size: 24px;
+}
+
+.btns {
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+#clock {
+    font-size: 56px;
+}

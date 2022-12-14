@@ -17,7 +17,7 @@ let isGameOver = false;
 
 const startGame = () => {
     TILE_COUNT = 4;
-    parent.style.width = '21`0px';
+    parent.style.width = '210px';
     updateScore(0 - SCORE);
     MILLISECONDS = 0;
     SECONDS = TIMER;
@@ -93,7 +93,7 @@ const getDifferentColor = (colors) => {
     const random = getRandomNumber(0, 2);
     const newColors = [...colors];
     let color = colors[random];
-    color > 126 ? (color -= 50) : (color += 50);
+    color > 126 ? (color -= 40) : (color += 40);
 
     newColors[random] = color;
     return `rgb(${newColors[0]}, ${newColors[1]}, ${newColors[2]})`;
