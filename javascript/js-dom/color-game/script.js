@@ -17,7 +17,7 @@ let isGameOver = false;
 
 const startGame = () => {
     TILE_COUNT = 4;
-    parent.style.width = '210px';
+    parent.style.width = '21`0px';
     updateScore(0 - SCORE);
     MILLISECONDS = 0;
     SECONDS = TIMER;
