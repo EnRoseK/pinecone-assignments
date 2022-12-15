@@ -18,6 +18,30 @@ const startGame = () => {
     guessInput.value = '';
 };
 
+const checkNumber = () => {
+    const input = guessInput.value;
+    if (!Number(input)) {
+        messageArea.innerText = `Тоо оруул!`;
+    } else if (Number(input) <= 0) {
+        messageArea.innerText = `0-ээс их тоо оруул!`;
+    } else if (Number(input) > 20) {
+        messageArea.innerText = `20-ээс бага тоо оруул!`;
+    } else if (Number(input) > randomNum) {
+        messageArea.innerText = `Бага тоо оруул!`;
+        SCORE--;
+        updateScoreUI();
+    } else if (Number(input) < randomNum) {
+        messageArea.innerText = `Их тоо оруул!`;
+        SCORE--;
+        updateScoreUI();
+    } else if (Number(input) === randomNum) {
+        messageArea.innerText = 'Зөв таалаа';
+        messageArea.style.background = '#60b347';
+        HIGHSCORES.push(SCORE);
+        updateHighScoreUI();
+    }
+};
+
 const getRandomNumber = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 };
@@ -33,24 +57,10 @@ const updateHighScoreUI = () => {
 
 randomNum = getRandomNumber(1, 20);
 
-checkBtn.addEventListener('click', () => {
-    const input = guessInput.value;
-    if (!Number(input)) {
-        messageArea.innerText = `Тоо оруул!`;
-    } else if (Number(input) > randomNum) {
-        messageArea.innerText = `Бага тоо оруул!`;
-        SCORE--;
-        updateScoreUI();
-    } else if (Number(input) < randomNum) {
-        messageArea.innerText = `Их тоо оруул!`;
-        SCORE--;
-        updateScoreUI();
-    } else if (Number(input) === randomNum) {
-        messageArea.innerText = 'Зөв таалаа';
-        messageArea.style.background = '#60b347';
-        HIGHSCORES.push(SCORE);
-        updateHighScoreUI();
-    }
+checkBtn.addEventListener('click', checkNumber);
+
+guessInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') checkNumber();
 });
 
 againBtn.addEventListener('click', startGame);
