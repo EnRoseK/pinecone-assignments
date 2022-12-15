@@ -32,6 +32,12 @@ body {
     border-radius: 5px;
     cursor: pointer;
     text-transform: uppercase;
+    transition: 0.3s all ease-in-out;
+}
+
+.btns:hover {
+    background: white;
+    color: black;
 }
 
 #clock {
