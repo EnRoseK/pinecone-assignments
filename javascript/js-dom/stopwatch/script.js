@@ -1,7 +1,6 @@
 const clock = document.getElementById('clock');
 const startBtn = document.getElementById('startBtn');
 const stopBtn = document.getElementById('stopBtn');
-const pauseBtn = document.getElementById('pauseBtn');
 let timer;
 
 let minutes = 0,
@@ -42,16 +41,4 @@ startBtn.addEventListener('click', () => {
 
 stopBtn.addEventListener('click', () => {
     clearInterval(timer);
-    pauseBtn.innerText = 'Pause';
-});
-
-pauseBtn.addEventListener('click', () => {
-    const text = pauseBtn.innerText.toLowerCase();
-    if (text === 'pause') {
-        clearInterval(timer);
-        pauseBtn.innerText = 'Continue';
-    } else {
-        timer = setInterval(updateTimer, 10);
-        pauseBtn.innerText = 'Pause';
-    }
 });
