@@ -3,9 +3,9 @@ const num = 5;
 let result = '';
 
 for (let i = 1; i <= num; i++) {
-  for (let j = 1; j <= i; j++) result += j + ' ';
+    for (let j = 1; j <= i; j++) result += j + ' ';
 
-  result += '\n';
+    result += '\n';
 }
 
 console.log(result);
@@ -14,10 +14,10 @@ console.log(result);
 const input = 5;
 let output = '';
 
-for (let i = 1; i <= num; i++) {
-  for (let j = num; j >= i; j--) output += j + ' ';
+for (let i = 1; i <= input; i++) {
+    for (let j = input; j >= i; j--) output += j + ' ';
 
-  output += '\n';
+    output += '\n';
 }
 
 console.log(output);

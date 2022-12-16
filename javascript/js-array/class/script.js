@@ -1,25 +1,6 @@
-const studentNames = [
-  'irmuun',
-  'temuulen',
-  'usukhbayr',
-  'sukhbat',
-  'temuulen',
-  'ganbold',
-  'amur',
-  'dulguun',
-  'namuunbaigal',
-  'baljinnyam',
-  'anand',
-  'odbayr',
-  'narantsetseg',
-  'aimergen',
-  'tengisbold',
-  'sed-erdene',
-  'binderiya',
-  'indra',
-  'javkhlant',
-  'dalaikhuu',
-];
+const studentNames = ['irmuun', 'temuulen', 'usukhbayr', 'sukhbat', 'temuulen', 'ganbold', 'amur', 'dulguun', 'namuunbaigal', 'baljinnyam', 'anand', 'odbayr', 'narantsetseg', 'aimergen', 'tengisbold', 'sed-erdene', 'indra', 'dalaikhuu'];
+
+const heart = ['binderiya', 'javkhlant'];
 
 // let index = 0;
 
@@ -64,91 +45,91 @@ const results = [60, 70, 80, 90, 95, 92, 70, 76];
 // console.log(grades);
 
 const tictac = [
-  [0, 0, 0],
-  [0, 0, 0],
-  [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
 ];
 
 let isOver = false,
-  space = 9;
+    space = 9;
 
 while (!isOver) {
-  let xx = prompt('Enter index through x-axis for X');
-  let xy = prompt('Enter index through y-axis for X');
+    let xx = prompt('Enter index through x-axis for X');
+    let xy = prompt('Enter index through y-axis for X');
 
-  tictac[xx][xy] = 'X';
-  space--;
+    tictac[xx][xy] = 'X';
+    space--;
 
-  if (space === 0) {
-    isOver = true;
-    break;
-  }
-
-  if ((xx === 0 && xy === 0) || (xx === 2 && xy === 0) || (xx === 2 && xy === 2) || (xx === 0 && xy === 2) || (xx === 2 && xy === 2)) {
-    let count = 0;
-    for (let i = 0; i < 3; i++) if (tictac[i][i] === 'X') count++;
-    if (count === 3) {
-      isOver = true;
-      break;
+    if (space === 0) {
+        isOver = true;
+        break;
     }
-  }
 
-  let count = 0;
-  for (let i = 0; i < 3; i++) if (tictac[xx][i] === 'X') count++;
-  if (count === 3) {
-    isOver = true;
-    break;
-  }
-
-  count = 0;
-  for (let i = 0; i < 3; i++) if (tictac[i][xy] === 'X') count++;
-  if (count === 3) {
-    isOver = true;
-    break;
-  }
-  console.clear();
-  for (let i = 0; i < 3; i++) {
-    const res = tictac[i].join('-');
-    console.log(res);
-  }
-
-  let yx = prompt('Enter index through x-axis for Y');
-  let yy = prompt('Enter index through y-axis for Y');
-
-  tictac[yx][yy] = 'Y';
-  space--;
-
-  if (space === 0) {
-    isOver = true;
-    break;
-  }
-
-  if ((yx === 0 && yy === 0) || (yx === 2 && yy === 0) || (yx === 2 && yy === 2) || (yx === 0 && yy === 2) || (yx === 2 && yy === 2)) {
-    let count = 0;
-    for (let i = 0; i < 3; i++) if (tictac[i][i] === 'X') count++;
-    if (count === 3) {
-      isOver = true;
-      break;
+    if ((xx === 0 && xy === 0) || (xx === 2 && xy === 0) || (xx === 2 && xy === 2) || (xx === 0 && xy === 2) || (xx === 2 && xy === 2)) {
+        let count = 0;
+        for (let i = 0; i < 3; i++) if (tictac[i][i] === 'X') count++;
+        if (count === 3) {
+            isOver = true;
+            break;
+        }
     }
-  }
 
-  count = 0;
-  for (let i = 0; i < 3; i++) if (tictac[yx][i] === 'X') count++;
-  if (count === 3) isOver = true;
+    let count = 0;
+    for (let i = 0; i < 3; i++) if (tictac[xx][i] === 'X') count++;
+    if (count === 3) {
+        isOver = true;
+        break;
+    }
 
-  count = 0;
-  for (let i = 0; i < 3; i++) if (tictac[i][yy] === 'X') count++;
-  if (count === 3) isOver = true;
+    count = 0;
+    for (let i = 0; i < 3; i++) if (tictac[i][xy] === 'X') count++;
+    if (count === 3) {
+        isOver = true;
+        break;
+    }
+    console.clear();
+    for (let i = 0; i < 3; i++) {
+        const res = tictac[i].join('-');
+        console.log(res);
+    }
 
-  console.clear();
-  for (let i = 0; i < 3; i++) {
-    const res = tictac[i].join('-');
-    console.log(res);
-  }
+    let yx = prompt('Enter index through x-axis for Y');
+    let yy = prompt('Enter index through y-axis for Y');
+
+    tictac[yx][yy] = 'Y';
+    space--;
+
+    if (space === 0) {
+        isOver = true;
+        break;
+    }
+
+    if ((yx === 0 && yy === 0) || (yx === 2 && yy === 0) || (yx === 2 && yy === 2) || (yx === 0 && yy === 2) || (yx === 2 && yy === 2)) {
+        let count = 0;
+        for (let i = 0; i < 3; i++) if (tictac[i][i] === 'X') count++;
+        if (count === 3) {
+            isOver = true;
+            break;
+        }
+    }
+
+    count = 0;
+    for (let i = 0; i < 3; i++) if (tictac[yx][i] === 'X') count++;
+    if (count === 3) isOver = true;
+
+    count = 0;
+    for (let i = 0; i < 3; i++) if (tictac[i][yy] === 'X') count++;
+    if (count === 3) isOver = true;
+
+    console.clear();
+    for (let i = 0; i < 3; i++) {
+        const res = tictac[i].join('-');
+        console.log(res);
+    }
 }
 
 console.clear();
 for (let i = 0; i < 3; i++) {
-  const res = tictac[i].join('-');
-  console.log(res);
+    const res = tictac[i].join('-');
+    console.log(res);
 }
