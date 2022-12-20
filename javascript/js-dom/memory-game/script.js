@@ -20,7 +20,6 @@ const getTile = (value) => {
     tileFront.classList.add('front');
     tileBack.classList.add('back');
     tile.setAttribute('val', value);
-    tile.setAttribute('id', tiles.length);
 
     tile.addEventListener('click', () => {
         tile.classList.add('active');
