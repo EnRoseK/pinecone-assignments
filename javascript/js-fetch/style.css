@@ -25,3 +25,8 @@
 .ratio .card-img-top {
     object-fit: cover;
 }
+
+.nav-link,
+.card-category {
+    text-transform: capitalize;
+}
