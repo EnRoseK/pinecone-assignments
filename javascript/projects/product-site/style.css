@@ -1,3 +1,7 @@
+a {
+    text-decoration: none;
+}
+
 .card-name {
     white-space: nowrap;
     text-overflow: ellipsis;

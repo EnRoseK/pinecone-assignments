@@ -1,4 +1,5 @@
 const productsTarget = document.getElementById('productsTarget');
+const offCanvas = document.querySelector('.offcanvas');
 
 const params = new URL(window.location).searchParams;
 const category = params.get('category');
@@ -22,7 +23,9 @@ const getPagination = (total, page, limit) => {
         } else {
             const sQuery = query ? '&q=' + query : '';
             pagination += `
-        <li class="page-item"><a class="page-link" href="${window.location.pathname}?limit=${12}&page=${i}${sQuery}">${i}</a></li>
+        <li class="page-item"><a class="page-link" href="${
+            window.location.pathname
+        }?limit=${12}&page=${i}${sQuery}">${i}</a></li>
         `;
         }
     }
@@ -34,7 +37,7 @@ const getPagination = (total, page, limit) => {
 };
 
 const getProductCard = (product) => {
-    return `<div class="col-4">
+    return `<div class="col-3">
                     <div class="card">
                         <div class="ratio ratio-4x3">
                             <img src="${product.thumbnail}" class="card-img-top" alt="${product.title}"/>                            
@@ -119,7 +122,9 @@ getProducts(limit, page, category, query, id);
 
 const getMenuItem = (menuItem) => {
     return `<li class="nav-item">
-                <a class="nav-link ${menuItem.isActive && 'active'}" href="${menuItem.link}">${menuItem.name}</a>
+                <a class="nav-link ${menuItem.isActive && 'active'}" href="${menuItem.link}">${
+        menuItem.name
+    }</a>
             </li>`;
 };
 
