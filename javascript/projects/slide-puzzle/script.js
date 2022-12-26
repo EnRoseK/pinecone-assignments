@@ -101,9 +101,6 @@ const boxClickHandler = (e) => {
         startPuzzle[startPuzzle.length - 1][startPuzzle[startPuzzle.length - 1].length - 1] =
             puzzleSize * puzzleSize;
         renderPuzzle();
-        winPuzzle = [];
-        startPuzzle = [];
-        zeroIndex = [];
         setTimeout(() => {
             gameOverTarget.querySelector('h1').innerHTML = `Game Over!`;
             gameOverTarget.classList.add('active');
@@ -138,6 +135,9 @@ const renderPuzzle = () => {
 };
 
 const startGame = () => {
+    winPuzzle = [];
+    startPuzzle = [];
+    zeroIndex = [];
     generateWinPuzzle();
     generatePuzzle();
     findZeroIndex();
@@ -148,4 +148,10 @@ startGameBtn.addEventListener('click', () => {
     gameOverTarget.classList.remove('active');
     startGame();
 });
+
+gameOverTarget.addEventListener('click', () => {
+    gameOverTarget.classList.remove('active');
+    startGame();
+});
+
 startGame();

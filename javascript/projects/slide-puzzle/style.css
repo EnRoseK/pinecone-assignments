@@ -35,8 +35,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     color: white;
     font-size: 50px;
+}
+
+#gameOver > button {
+    font-size: 36px;
 }
 
 #gameOver.active {
