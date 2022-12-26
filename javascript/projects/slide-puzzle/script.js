@@ -7,9 +7,7 @@ let startPuzzle = [];
 let zeroIndex = [];
 const puzzleSize = 3;
 
-const generateRandomNum = (min, max) => {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-};
+const generateRandomNum = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
 const checkNumberExist = (num) => {
     for (let i = 0; i < startPuzzle.length; i++) {
@@ -42,7 +40,6 @@ const generatePuzzle = () => {
         for (let j = 0; j < puzzleSize; j++) {
             let number = generateRandomNum(0, puzzleSize * puzzleSize - 1);
             while (checkNumberExist(number)) {
-                console.log('looping');
                 number = generateRandomNum(0, puzzleSize * puzzleSize - 1);
             }
             startPuzzle[i].push(number);
@@ -56,7 +53,7 @@ const findZeroIndex = () => {
             if (startPuzzle[i][j] === 0) {
                 zeroIndex.push(i);
                 zeroIndex.push(j);
-                break;
+                return;
             }
         }
     }
@@ -66,11 +63,10 @@ const checkPosition = (boxPos, zeroPos) => {
     const xDiff = Math.abs(boxPos[0] - zeroPos[0]);
     const yDiff = Math.abs(boxPos[1] - zeroPos[1]);
 
-    return xDiff + yDiff === 1 ? true : false;
+    return xDiff + yDiff === 1;
 };
 
 const isGameOver = () => {
-    let isOver = true;
     for (let i = 0; i < startPuzzle.length; i++) {
         for (let j = 0; j < startPuzzle[i].length; j++) {
             if (winPuzzle[i][j] !== startPuzzle[i][j]) {
@@ -79,7 +75,7 @@ const isGameOver = () => {
         }
     }
 
-    return isOver;
+    return true;
 };
 
 const boxClickHandler = (e) => {
@@ -102,7 +98,7 @@ const boxClickHandler = (e) => {
             puzzleSize * puzzleSize;
         renderPuzzle();
         setTimeout(() => {
-            gameOverTarget.querySelector('h1').innerHTML = `Game Over!`;
+            gameOverTarget.querySelector('h1').innerHTML = `You Won!`;
             gameOverTarget.classList.add('active');
         }, 1500);
     }
@@ -110,7 +106,6 @@ const boxClickHandler = (e) => {
 
 const renderPuzzle = () => {
     gameTarget.innerHTML = ``;
-    console.log('renderpuzzle');
     gameTarget.style.width = `${puzzleSize * 200}px`;
     gameTarget.style.height = `${puzzleSize * 200}px`;
 
