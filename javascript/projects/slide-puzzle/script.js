@@ -106,8 +106,6 @@ const boxClickHandler = (e) => {
 
 const renderPuzzle = () => {
     gameTarget.innerHTML = ``;
-    gameTarget.style.width = `${puzzleSize * 200}px`;
-    gameTarget.style.height = `${puzzleSize * 200}px`;
 
     for (let i = 0; i < startPuzzle.length; i++) {
         for (let j = 0; j < startPuzzle[i].length; j++) {
