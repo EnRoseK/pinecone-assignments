@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
+:root {
+    --size: 3;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -7,24 +13,111 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     min-height: 100vh;
+    background: linear-gradient(135deg, #8052ec, #d161ff);
+    font-family: 'Itim', cursive;
+    position: relative;
+    font-size: 16px;
 }
 
-.outside {
-    width: 910px;
-    height: 910px;
-    border: 5px solid black;
+h1 {
+    margin: 0;
+}
+
+#gameTarget {
+    width: calc(var(--size) * 200px);
+    height: calc(var(--size) * 200px);
     display: flex;
     flex-wrap: wrap;
+    gap: 5px;
+    padding: 50px;
 }
 
-.cell {
-    width: 300px;
-    height: 300px;
-    border: 1px solid black;
+.tile {
+    width: calc(100% / 3 - 10px);
+    height: calc(100% / 3 - 5px);
+    background: white;
+    border-radius: 10px;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 200px;
+    font-size: 8rem;
+}
+
+.tile.playerX {
+    color: #8052ec;
+}
+
+.tile.playerO {
+    color: #d161ff;
+}
+
+#turn {
+    color: white;
+    font-size: 3rem;
+}
+
+#gameOverScreen {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    top: -100%;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s all ease-in-out;
+}
+
+#gameOverScreen.active {
+    top: 0;
+}
+
+#gameOverScreen > h1 {
+    color: white;
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#startGame {
+    background: white;
+    padding: 5px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 2rem;
+    transition: 0.2s all ease-in-out;
+}
+
+#startGame:hover {
+    opacity: 0.5;
+}
+
+@media screen and (max-width: 760px) {
+    #gameTarget {
+        width: calc(var(--size) * 100px);
+        height: calc(var(--size) * 100px);
+        padding: 20px;
+    }
+
+    .tile {
+        font-size: 4rem;
+    }
+
+    #gameOverScreen > h1 {
+        font-size: 2rem;
+    }
+
+    #startGame {
+        font-size: 1rem;
+    }
+
+    #turn {
+        font-size: 2rem;
+    }
 }

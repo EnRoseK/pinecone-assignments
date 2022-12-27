@@ -1,89 +1,123 @@
-const box = document.querySelector('.outside');
-const score = [
-    [0, 0, 0],
-    [0, 0, 0],
-    [0, 0, 0],
-];
+const gameTarget = document.querySelector('#gameTarget');
+const turnTarget = document.getElementById('turn');
+const gameOverScreen = document.getElementById('gameOverScreen');
+const startGameBtn = document.getElementById('startGame');
+const root = document.querySelector(':root');
 
-let turn = 'X';
+let score;
 
-const checkRow = (x, y) => {
-    let isOver = true;
-    for (let i = 0; i < score[x].length; i++) {
-        if (score[x][i] !== score[x][y]) {
-            isOver = false;
-            break;
-        }
-    }
+let SIZE = 3;
+let playerTurn = 'X';
+let moves = SIZE * SIZE;
 
-    return isOver;
+const updateTurnUI = () => {
+    turnTarget.innerHTML = `Turn: Player ${playerTurn}`;
 };
 
-const checkCol = (x, y) => {
-    let isOver = true;
-    for (let i = 0; i < score.length; i++) {
-        if (score[i][y] !== score[x][y]) {
-            isOver = false;
-            break;
-        }
-    }
+const checkX = (x) => {
+    for (let i = 0; i < SIZE; i++) if (score[x][i] !== playerTurn) return false;
 
-    return isOver;
+    return true;
 };
 
-const checkDiag1 = (x, y) => {
-    let isOver = true;
+const checkY = (y) => {
+    for (let i = 0; i < SIZE; i++) if (score[i][y] !== playerTurn) return false;
 
-    for (let i = 0; i < score.length; i++) {
-        if (score[i][i] !== score[x][y]) {
-            isOver = false;
-            break;
-        }
-    }
-
-    return isOver;
+    return true;
 };
 
-const checkDiag2 = (x, y) => {
-    let isOver = true;
+const checkDiagFirst = () => {
+    for (let i = 0; i < SIZE; i++) if (score[i][i] !== playerTurn) return false;
 
-    let j = 2;
-    for (let i = 0; i < score.length; i++) {
-        if (score[i][j] !== score[x][y]) {
-            isOver = false;
-            break;
-        }
+    return true;
+};
+
+const checkDiagSecond = () => {
+    let j = SIZE - 1;
+    for (let i = 0; i < SIZE; i++) {
+        if (score[i][j] !== playerTurn) return false;
         j--;
     }
 
-    return isOver;
+    return true;
 };
 
-const createCells = () => {
-    for (let i = 0; i < 3; i++) {
-        for (let j = 0; j < 3; j++) {
-            const cell = document.createElement('div');
-            cell.classList.add('cell');
+const checkWinner = (x, y) => {
+    if (checkX(x) || checkY(y)) return true;
+    else if (x === 1 && y === 1 && (checkDiagFirst() || checkDiagSecond())) return true;
+    else if (x === y && checkDiagFirst()) return true;
+    else if (checkDiagSecond()) return true;
+    else return false;
+};
 
-            cell.setAttribute('x-val', i);
-            cell.setAttribute('y-val', j);
+const tileHandler = (e) => {
+    e.target.innerHTML = playerTurn;
+    e.target.classList.add(`player${playerTurn}`);
+    e.target.style.pointerEvents = 'none';
 
-            cell.addEventListener('click', (e) => {
-                e.target.innerHTML = turn;
-                const x = e.target.getAttribute('x-val');
-                const y = e.target.getAttribute('y-val');
+    const x = Number(e.target.getAttribute('x')),
+        y = Number(e.target.getAttribute('y'));
 
-                score[x][y] = turn;
+    score[x][y] = playerTurn;
+    moves--;
 
-                turn = turn === 'X' ? 'O' : 'X';
+    if (checkWinner(x, y)) {
+        gameOverScreen.querySelector('h1').innerHTML = `Player ${playerTurn} Won!!!`;
+        gameOverScreen.classList.add('active');
+        return;
+    }
 
-                if ((x === 0 && y === 0) || (x === 2 && y === 2)) {
-                }
-            });
+    if (moves === 0) {
+        gameOverScreen.querySelector('h1').innerHTML = `Draw!!!`;
+        gameOverScreen.classList.add('active');
+        return;
+    }
 
-            box.appendChild(cell);
+    playerTurn = playerTurn === 'X' ? 'O' : 'X';
+    updateTurnUI();
+};
+
+const renderTiles = () => {
+    gameTarget.innerHTML = ``;
+
+    for (let i = 0; i < SIZE; i++) {
+        for (let j = 0; j < SIZE; j++) {
+            const tile = document.createElement('div');
+            tile.classList.add('tile');
+
+            tile.setAttribute(`x`, i);
+            tile.setAttribute(`y`, j);
+
+            tile.addEventListener('click', tileHandler);
+
+            gameTarget.appendChild(tile);
         }
     }
 };
 
-createCells();
+const startGame = () => {
+    score = [
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0],
+    ];
+
+    playerTurn = 'X';
+    moves = SIZE * SIZE;
+
+    root.style.setProperty('--size', SIZE);
+    updateTurnUI();
+    renderTiles();
+};
+
+startGame();
+
+startGameBtn.addEventListener('click', () => {
+    gameOverScreen.classList.remove('active');
+    startGame();
+});
+
+gameOverScreen.addEventListener('click', () => {
+    gameOverScreen.classList.remove('active');
+    startGame();
+});

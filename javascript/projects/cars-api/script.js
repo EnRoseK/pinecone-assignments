@@ -44,6 +44,7 @@ getCarsHtml();
 
 const modal = new bootstrap.Modal(document.getElementById('carModal'));
 const modalFooter = document.querySelector('.modal-footer');
+const modalTitle = document.getElementById('carModalTitle');
 const createBtn = document.getElementById('createBtn');
 
 const imageUrlTarget = document.getElementById('imageUrl');
@@ -67,7 +68,6 @@ const addCar = async () => {
         body: JSON.stringify(newCar),
     });
 
-    const res = await req.json();
     modal.hide();
     getCarsHtml();
 };
@@ -113,6 +113,8 @@ const editCar = (id) => {
     fetch(`http://localhost:3333/api/cars/${id}`)
         .then((res) => res.json())
         .then((car) => {
+            modalTitle.innerText = 'Edit Car';
+
             imageUrlTarget.value = car.imageUrl;
             modelTarget.value = car.model;
             brandTarget.value = car.brand;
@@ -136,6 +138,8 @@ createBtn.addEventListener('click', () => {
     modelTarget.value = ``;
     brandTarget.value = ``;
     priceTarget.value = ``;
+
+    modalTitle.innerText = 'Add Car';
 
     modalFooter.innerHTML = `
     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
