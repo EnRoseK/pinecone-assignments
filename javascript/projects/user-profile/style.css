@@ -1,0 +1,56 @@
+* {
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+p {
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100vw;
+    background-color: #ddd;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    align-items: center;
+}
+
+.pro-pic {
+    border-radius: 50%;
+    border: 10px solid white;
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+
+.top {
+    background-color: aqua;
+    width: 100%;
+    padding: 0 100px 10px 100px;
+    border-radius: 20px 20px 0 0;
+    color: white;
+    text-align: center;
+}
+
+.top > h2 {
+    margin-bottom: 15px;
+}
+
+.top > p {
+    margin-bottom: 10px;
+}
+
+.bottom {
+    background-color: white;
+    padding: 50px 100px;
+    border-radius: 0 0 20px 20px;
+}
