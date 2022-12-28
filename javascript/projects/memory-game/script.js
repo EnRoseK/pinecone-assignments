@@ -1,10 +1,10 @@
-const puzzle = [
+const SIZE = 4;
+let puzzle = [
     [0, 1, 2, 3],
     [4, 5, 6, 7],
     [0, 1, 2, 3],
     [4, 5, 6, 7],
 ];
-
 let found = 0;
 let flippedItems = [];
 
@@ -33,7 +33,8 @@ const getTile = (value) => {
                 flippedItems = [];
             } else {
                 setTimeout(() => {
-                    for (let i = 0; i < flippedItems.length; i++) flippedItems[i].classList.remove('active');
+                    for (let i = 0; i < flippedItems.length; i++)
+                        flippedItems[i].classList.remove('active');
                     flippedItems = [];
                 }, 1000);
             }
