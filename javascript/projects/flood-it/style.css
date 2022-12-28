@@ -1,24 +1,30 @@
 body {
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 100vh;
 }
+
+h1,
+h2 {
+    text-align: center;
+}
+
 #box {
     display: flex;
     flex-wrap: wrap;
     width: 280px;
     height: 280px;
     border: solid black 8px;
-}
-h1,
-h2 {
-    text-align: center;
+    gap: 0;
 }
 
 #box > div {
     width: 20px;
     height: 20px;
 }
+
 form {
     text-align: center;
     margin-bottom: 20px;

@@ -1,67 +1,79 @@
-const boxTarget = document.getElementById('box');
-const movesTarget = document.getElementById('moves');
+const boxTarget = document.querySelector('#box');
+const movesTarget = document.querySelector('#moves');
 const pTarget = document.querySelector('p');
 const lostTarget = document.querySelector('h2');
-const sizeTarget = document.getElementById('size');
-const colorTarget = document.getElementById('color');
-const startBtn = document.getElementById('newGameBtn');
-const colors = ['red', 'cyan', 'green', 'purple', 'yellow', 'orange'];
-let SIZE = 14;
-let MOVES = 0;
-const values = [];
-const selected = [[0, 0]];
+const sizeTarget = document.querySelector('#size');
+const colorTarget = document.querySelector('#color');
+const startBtn = document.querySelector('#newGameBtn');
 
-const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+let SIZE = 14;
+let COLOR_COUNT = 6;
+let MOVES = 0;
+let colors;
+let colorValues;
+let values;
+
+const generateRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+
+const generateRandomColor = () => {
+    const red = generateRandomNumber(0, 255);
+    const green = generateRandomNumber(0, 255);
+    const blue = generateRandomNumber(0, 255);
+
+    return `rgb(${red}, ${green}, ${blue})`;
+};
 
 const fillValues = () => {
     for (let i = 0; i < SIZE; i++) {
         values.push([]);
-        for (let j = 0; j < SIZE; j++) {
-            const color = colors[getRandomNumber(0, 5)];
-            values[i].push(color);
-        }
+        for (let j = 0; j < SIZE; j++) values[i].push(false);
     }
+
+    values[0][0] = true;
 };
 
-const changeColors = (color) => {
-    for (let i = 0; i < selected.length; i++) {
-        values[selected[i][0]][selected[i][1]] = color;
-    }
+const generateColors = () => {
+    for (let i = 0; i < COLOR_COUNT; i++) colors.push(generateRandomColor());
 };
 
-const checkSurroundings = (color) => {};
+const boxHandler = (e) => {
+    const x = e.target.getAttribute('x');
+    const y = e.target.getAttribute('y');
 
-const fillSquare = () => {
-    boxTarget.innerHTML = '';
+    colors[0][0] = colors[x][y];
+    renderBoxes();
+};
+
+const renderBoxes = () => {
+    boxTarget.innerHTML = ``;
 
     for (let i = 0; i < SIZE; i++) {
+        colorValues.push([]);
         for (let j = 0; j < SIZE; j++) {
-            const singleBox = document.createElement('div');
-            singleBox.style.background = values[i][j];
-            singleBox.setAttribute('x-val', i);
-            singleBox.setAttribute('y-val', j);
-            singleBox.addEventListener('click', (e) => {
-                MOVES++;
-                movesTarget.innerText = `${MOVES}/25`;
+            const randomIndex = generateRandomNumber(0, COLOR_COUNT - 1);
 
-                pTarget.innerText = '';
+            const box = document.createElement('div');
+            box.style.backgroundColor = colors[randomIndex];
+            box.setAttribute('x', i);
+            box.setAttribute('y', j);
 
-                if (MOVES >= 25) {
-                    lostTarget.innerText = 'You LOST!!!';
-                }
+            colorValues[i].push(colors[randomIndex]);
 
-                const x = e.target.getAttribute('x-val');
-                const y = e.target.getAttribute('y-val');
+            box.addEventListener('click', boxHandler);
 
-                changeColors(values[x][y]);
-
-                fillSquare();
-            });
-
-            boxTarget.appendChild(singleBox);
+            boxTarget.appendChild(box);
         }
     }
 };
 
-fillValues();
-fillSquare();
+const startGame = () => {
+    colors = [];
+    colorValues = [];
+    values = [];
+
+    generateColors();
+    fillValues();
+    renderBoxes();
+};
+
+startGame();
