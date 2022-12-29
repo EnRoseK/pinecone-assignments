@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Picker</title>
+    <style>
+        .product {
+            width: 300px;
+            height: 300px;
+            background: url('./img/shirt.png') white;
+            background-size: cover;
+            mix-blend-mode: color-burn;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="color" name="colorPicker" id="colorPicker" value="#ffffff">
+
+    <div class="product">
+        <!-- <img src="./img/shirt.png" alt=""> -->
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
