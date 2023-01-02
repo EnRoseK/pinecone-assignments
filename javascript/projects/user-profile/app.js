@@ -8,9 +8,9 @@ const getUser = async () => {
 };
 
 const getUserCard = (user) => {
-    return ` <div class="top">
+    return ` 
+        <div class="top">
             <img src="${user.picture.large}" class="pro-pic" alt="">
-
             <h2>${user.name.first} ${user.name.last}</h2>
             <p>${user.email}</p>
             <p>${user.cell}</p>
@@ -18,7 +18,7 @@ const getUserCard = (user) => {
 
         <div class="bottom">
             <div class="info">Devices Used - Mobile</div>
-            <div class="info">Location - San Francisco, USA</div>
+            <div class="info">Location - ${user.location.city}, ${user.location.country}</div>
             <div class="info">Facebook Profile</div>
             <div class="amount">Total Amount Spent $2,314</div>
         </div>`;
