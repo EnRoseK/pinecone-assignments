@@ -3,7 +3,6 @@ const profileTarget = document.querySelector('.profile');
 const getUser = async () => {
     const data = await fetch(`https://randomuser.me/api`).then((res) => res.json());
     const user = data.results[0];
-    console.log(user);
     return user;
 };
 
@@ -17,9 +16,9 @@ const getUserCard = (user) => {
         </div>
 
         <div class="bottom">
-            <div class="info">Devices Used - Mobile</div>
+            <div class="info">Birthday - ${user.dob.date.slice(0, 10)}</div>
             <div class="info">Location - ${user.location.city}, ${user.location.country}</div>
-            <div class="info">Facebook Profile</div>
+            <div class="info">Registered Date - ${user.registered.date.slice(0, 10)}</div>
             <div class="amount">Total Amount Spent $2,314</div>
         </div>`;
 };
