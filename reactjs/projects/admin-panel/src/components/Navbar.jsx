@@ -18,6 +18,7 @@ export const Navbar = () => {
         items: [
             { label: 'User Profile', link: '/' },
             { label: 'Add Article', link: '/' },
+            { label: '---', link: '/' },
             { label: 'Sign Out', link: '/' },
         ],
     };

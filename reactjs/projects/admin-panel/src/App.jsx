@@ -1,17 +1,13 @@
 import './styles/bootstrap.min.css';
 import './styles/styles.css';
 import { Navbar } from './components/Navbar';
-import { Sidebar } from './components/Sidebar';
-import { Dashboard } from './components/Dashboard';
+import { Content } from './components/Content';
 
 const App = () => {
     return (
         <>
             <Navbar />
-            <main className='d-flex flex-nowrap'>
-                <Sidebar />
-                <Dashboard />
-            </main>
+            <Content />
         </>
     );
 };
