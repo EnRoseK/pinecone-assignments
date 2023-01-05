@@ -1,8 +1,11 @@
 export const MainSection = () => {
     return (
-        <div style={{ background: '#003f62' }}>
-            <div className='container text-white py-4 px-5'>
-                <img src='/img/logo.png' alt='' />
+        <div className='mainSection'>
+            <div className='container'>
+                <div>
+                    <img src='/img/logo.png' alt='Logo' />
+                    <input type='text' name='search' id='search' placeholder='Search any things' />
+                </div>
             </div>
         </div>
     );
