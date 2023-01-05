@@ -1,98 +1,68 @@
-import { useState } from 'react';
-import { Button } from './Button';
 import { CiEdit, CiTrash } from 'react-icons/ci';
+import { PostEdit } from '../Post/PostEdit';
 
-const TableWrapper = ({ children }) => {
-    return (
-        <div className='mt-3'>
-            <table className='table table-bordered table-hover'>{children}</table>
-        </div>
-    );
-};
-
-const TableHead = () => {
-    const tableFields = ['#', 'Name', 'Description', 'Actions'];
-
-    return (
-        <thead>
-            <tr>
-                {tableFields.map((field, index) => (
-                    <th key={`table-field-${index}`}>{field}</th>
-                ))}
-            </tr>
-        </thead>
-    );
-};
-
-const TableBody = () => {
-    const [blogPosts, setBlogPosts] = useState([
-        {
-            id: 1,
-            title: 'Post 1',
-            description:
-                'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate suscipit est nam, architecto perferendis ipsum.',
-        },
-        {
-            id: 2,
-            title: 'Post 2',
-            description:
-                'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate suscipit est nam, architecto perferendis ipsum.',
-        },
-        {
-            id: 3,
-            title: 'Post 3',
-            description:
-                'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate suscipit est nam, architecto perferendis ipsum.',
-        },
-        {
-            id: 4,
-            title: 'Post 4',
-            description:
-                'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate suscipit est nam, architecto perferendis ipsum.',
-        },
-        {
-            id: 5,
-            title: 'Post 5',
-            description:
-                'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate suscipit est nam, architecto perferendis ipsum.',
-        },
-    ]);
-
+const TableRow = ({ post, index, posts, setBlogPosts, handleClose, handleShow, setModalContent, setModalTitle }) => {
     const rowStyle = {
         whiteSpace: 'nowrap',
     };
 
+    const editBtnHandler = () => {
+        setModalTitle('Edit post');
+        setModalContent(
+            <PostEdit posts={posts} setBlogPosts={setBlogPosts} handleClose={handleClose} singlePost={post} />
+        );
+        handleShow();
+    };
+
+    const deleteBtnHandler = () => {
+        setBlogPosts(posts.filter((curPost) => curPost.id !== post.id));
+    };
+
     return (
-        <tbody>
-            {blogPosts.map((post, index) => (
-                <tr key={`blog-post-${index}`}>
-                    <th scope='row'>{post.id}</th>
-                    <td style={rowStyle}>{post.title}</td>
-                    <td>{post.description}</td>
-                    <td style={rowStyle}>
-                        <button className='btn btn-sm btn-outline-primary me-2'>
-                            Edit <CiEdit />
-                        </button>
-                        <button
-                            className='btn btn-sm btn-outline-danger'
-                            onClick={() => {
-                                setBlogPosts(blogPosts.filter((curPost) => curPost.id !== post.id));
-                            }}
-                        >
-                            Delete <CiTrash />
-                        </button>
-                    </td>
-                </tr>
-            ))}
-        </tbody>
+        <tr key={`blog-post-${index}`}>
+            <th scope='row'>{post.id}</th>
+            <td style={rowStyle}>{post.title}</td>
+            <td>{post.description}</td>
+            <td style={rowStyle}>
+                <button className='btn btn-sm btn-outline-primary me-2' onClick={editBtnHandler}>
+                    Edit <CiEdit />
+                </button>
+                <button className='btn btn-sm btn-outline-danger' onClick={deleteBtnHandler}>
+                    Delete <CiTrash />
+                </button>
+            </td>
+        </tr>
     );
 };
 
-export const SectionTable = () => {
+export const SectionTable = ({ posts, setBlogPosts, handleClose, handleShow, setModalContent, setModalTitle }) => {
+    const tableFields = ['#', 'Name', 'Description', 'Actions'];
+
     return (
-        <TableWrapper>
-            <TableHead />
-            <TableBody />
-        </TableWrapper>
+        <div className='mt-3'>
+            <table className='table table-bordered table-hover'>
+                <thead>
+                    <tr>
+                        {tableFields.map((field, index) => (
+                            <th key={`table-field-${index}`}>{field}</th>
+                        ))}
+                    </tr>
+                </thead>
+                <tbody>
+                    {posts.map((post, index) => (
+                        <TableRow
+                            post={post}
+                            index={index}
+                            posts={posts}
+                            setBlogPosts={setBlogPosts}
+                            handleShow={handleShow}
+                            setModalTitle={setModalTitle}
+                            setModalContent={setModalContent}
+                            handleClose={handleClose}
+                        />
+                    ))}
+                </tbody>
+            </table>
+        </div>
     );
 };
