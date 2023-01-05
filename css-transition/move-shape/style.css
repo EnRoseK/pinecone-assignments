@@ -1,45 +1,48 @@
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .box {
-  border: 1px solid black;
-  width: 800px;
-  height: 800px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  box-shadow: 10px 10px 20px #333;
+    border: 1px solid black;
+    width: 500px;
+    height: 500px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    box-shadow: 10px 10px 20px #333;
 }
 
 .normal {
-  width: 200px;
-  height: 200px;
-  background: blue;
-  border-radius: 50%;
-  position: absolute;
-  top: calc(50% - 100px);
-  left: calc(50% - 100px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: 0.5s all ease-in-out;
+    width: 100px;
+    height: 100px;
+    background: blue;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s top, 2.5s left;
 }
 
 .normal h2 {
-  position: relative;
-  color: white;
+    position: relative;
+    color: white;
+    font-size: 16px;
 }
 
 .box:hover .normal {
-  transform: translate(0, calc(100% + 100px));
+    top: 100%;
+    left: 100%;
 }

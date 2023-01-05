@@ -4,7 +4,6 @@ export const State = () => {
     const [todoList, setTodoList] = useState([]);
     const [value, setValue] = useState('');
 
-    console.log(todoList);
     return (
         <div
             style={{
