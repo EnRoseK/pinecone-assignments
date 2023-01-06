@@ -77,3 +77,101 @@ header nav ul {
 }
 
 /* Hero Section Styles */
+.heroSection {
+    display: flex;
+    gap: 160px;
+    margin-bottom: 312px;
+}
+
+.heroImage {
+    height: 260px;
+    width: 410px;
+    background-color: #d05270;
+    border-radius: 20px;
+}
+
+.heroImage img {
+    transform: translateY(-12%) translateX(5%);
+}
+
+.heroTitle {
+    font-size: 52px;
+    color: #d05270;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.heroBlogTitle {
+    font-size: 52px;
+    color: #424242;
+    font-weight: 500;
+    margin-bottom: 36px;
+}
+
+.heroContent p {
+    color: #424242;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 36px;
+}
+
+.socialLogos {
+    display: flex;
+    gap: 18px;
+}
+
+.logoBtn {
+    padding: 23px 40px;
+    color: white;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    cursor: pointer;
+}
+
+.logoBtn.twitter {
+    background-color: #47acdf;
+}
+
+.logoBtn.linkedin {
+    background-color: #1275b1;
+}
+
+.logoBtn.medium {
+    background-color: black;
+}
+
+/* Posts Section Styles  */
+.postsSection > ul {
+    display: flex;
+    align-items: center;
+    gap: 52px;
+    margin-bottom: 124px;
+}
+
+.categLink {
+    color: #424242;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.categLink.active {
+    color: #d05270;
+    font-size: 24px;
+    border-bottom: 1px solid #d05270;
+    padding: 0 10px;
+}
+
+.posts {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.postCard {
+    width: calc((100% - 20px) / 2);
+}
