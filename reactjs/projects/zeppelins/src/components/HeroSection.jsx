@@ -1,5 +1,6 @@
 import { FaTwitter, FaLinkedinIn } from 'react-icons/fa';
 import { BsMedium } from 'react-icons/bs';
+import '../styles/HeroSection.css';
 
 export const HeroSection = () => {
     return (
@@ -31,7 +32,7 @@ export const HeroSection = () => {
                 </div>
             </div>
             <div className='heroImage'>
-                <img src='/img/Saly-16.png' alt='' />
+                <img src='/img/illustration.png' alt='' />
             </div>
         </div>
     );

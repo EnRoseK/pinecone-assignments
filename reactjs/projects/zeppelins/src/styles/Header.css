@@ -1,0 +1,38 @@
+/* Header Styles */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 66px;
+    margin-bottom: 138px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+header nav ul {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-link {
+    font-weight: 500;
+    font-size: 14px;
+    color: #424242;
+    text-transform: uppercase;
+    transform: 0.5s all;
+}
+
+.nav-link:hover {
+    color: #5a47ab;
+}
+
+.nav-link.active {
+    font-weight: 600;
+    color: #5a47ab;
+}

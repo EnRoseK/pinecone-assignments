@@ -1,0 +1,71 @@
+/* Hero Section Styles */
+.heroSection {
+    display: flex;
+    gap: 160px;
+    margin-bottom: 312px;
+}
+
+.heroTitle {
+    font-size: 52px;
+    color: #d05270;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.heroBlogTitle {
+    font-size: 52px;
+    color: #424242;
+    font-weight: 500;
+    margin-bottom: 36px;
+}
+
+.heroContent p {
+    color: #424242;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 36px;
+}
+
+.socialLogos {
+    display: flex;
+    gap: 18px;
+}
+
+.logoBtn {
+    padding: 23px 40px;
+    color: white;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    cursor: pointer;
+}
+
+.logoBtn.twitter {
+    background-color: #47acdf;
+    transition: 0.5s all;
+}
+
+.logoBtn.twitter:hover {
+    background-color: rgba(71, 172, 223, 0.8);
+}
+
+.logoBtn.linkedin {
+    background-color: #1275b1;
+    transition: 0.5s all;
+}
+
+.logoBtn.linkedin:hover {
+    background-color: rgba(18, 117, 177, 0.8);
+}
+
+.logoBtn.medium {
+    background-color: black;
+    transition: 0.5s all;
+}
+
+.logoBtn.medium:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}

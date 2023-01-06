@@ -1,18 +1,16 @@
-export const PostCard = () => {
+export const PostCard = ({ post }) => {
     return (
         <div className='postCard'>
             <div className='postImg'>
-                <img src='/img/post-image-1.png' alt='' />
+                <div className='imageWrapper'>
+                    <img src={`/img/${post.imgName}`} alt={post.title} />
+                </div>
             </div>
             <div className='postContent'>
                 <p className='date'>Nov 23 2020</p>
-                <h3 className='postTitle'>This way is wrong about UI Design.</h3>
-                <p className='postDesc'>
-                    A quick guide to assisting users in the challenging steps from learning about your podcast on the
-                    web. A quick guide to assisting users in the challenging steps from learning about your podcast on
-                    the web.
-                </p>
-                <a href='/' className='postLink'>
+                <h3 className='postTitle'>{post.title}</h3>
+                <p className='postDesc'>{post.description}</p>
+                <a href={post.link} className='postLink'>
                     Read More
                 </a>
             </div>
