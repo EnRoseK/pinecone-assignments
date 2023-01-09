@@ -85,7 +85,7 @@ const App = () => {
         });
 
         if (isEaten) {
-            setSnake([...newSnake, {}]);
+            setSnake([...newSnake, { x: newSnake[newSnake.length - 1].x, y: newSnake[newSnake.length - 1].y - 1 }]);
         } else {
             setSnake(newSnake);
         }
@@ -120,17 +120,25 @@ const App = () => {
     };
 
     const moveUp = () => {
+        let isEaten = false;
         let newSnake = [...snake];
         newSnake = newSnake.map((item, index) => {
             if (index === 0) {
-                if (checkIfFoodEaten(item.x, item.y - 1)) generateFood();
+                if (checkIfFoodEaten(item.x, item.y - 1)) {
+                    generateFood();
+                    isEaten = true;
+                }
                 if (item.y - 1 === -1) return { x: item.x, y: 9 };
                 return { x: item.x, y: item.y - 1 };
             }
             return { x: newSnake[index - 1].x, y: newSnake[index - 1].y };
         });
 
-        setSnake(newSnake);
+        if (isEaten) {
+            setSnake([...newSnake, { x: newSnake[newSnake.length - 1].x, y: newSnake[newSnake.length - 1].y + 1 }]);
+        } else {
+            setSnake(newSnake);
+        }
     };
 
     const handleKeyDown = (e) => {
