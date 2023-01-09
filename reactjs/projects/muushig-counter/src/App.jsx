@@ -15,10 +15,10 @@ const App = () => {
                     ))}
                 </thead>
                 <tbody>
-                    {scores.map((score) => {
+                    {scores.map((score, i) => {
                         return (
                             <tr>
-                                {score.map((singleScore) => {
+                                {score.map((singleScore, j) => {
                                     return <td>{singleScore}</td>;
                                 })}
                             </tr>
