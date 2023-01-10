@@ -33,6 +33,7 @@ const App = () => {
         { x: 0, y: 0 },
     ]);
     const [food, setFood] = useState({ x: 5, y: 5 });
+    const [isGameOver, setIsGameOver] = useState(false);
 
     const randomNum = (max, min) => Math.floor(Math.random() * (max - min + 1)) + min;
 
@@ -61,6 +62,14 @@ const App = () => {
         return false;
     };
 
+    const checkGameOver = (x, y) => {
+        for (let i = 1; i < snake.length; i++) {
+            if (snake[i].x === x && snake[i].y === y) return true;
+        }
+
+        return false;
+    };
+
     const changeDirection = (movingDirection) => {
         const index = directions.indexOf(movingDirection);
         if (index !== -2) {
@@ -78,14 +87,14 @@ const App = () => {
                     generateFood();
                     isEaten = true;
                 }
-                if (item.y + 1 === yCells) return { x: item.x, y: 0 };
+                if (item.y === yCells - 1) return { x: item.x, y: 0 };
                 return { x: item.x, y: item.y + 1 };
             }
             return { x: newSnake[index - 1].x, y: newSnake[index - 1].y };
         });
 
         if (isEaten) {
-            setSnake([...newSnake, { x: newSnake[newSnake.length - 1].x, y: newSnake[newSnake.length - 1].y - 1 }]);
+            setSnake([...newSnake, {}]);
         } else {
             setSnake(newSnake);
         }
@@ -93,30 +102,52 @@ const App = () => {
 
     const moveRight = () => {
         let newSnake = [...snake];
+        let isEaten = false;
         newSnake = newSnake.map((item, index) => {
             if (index === 0) {
-                if (checkIfFoodEaten(item.x + 1, item.y)) generateFood();
+                if (checkGameOver(item.x + 1, item.y)) {
+                    clearTimeout(game);
+                    console.log('Game over');
+                    setIsGameOver(true);
+                }
+
+                if (checkIfFoodEaten(item.x + 1, item.y)) {
+                    generateFood();
+                    isEaten = true;
+                }
                 if (item.x + 1 === xCells) return { x: 0, y: item.y };
                 return { x: item.x + 1, y: item.y };
             }
             return { x: newSnake[index - 1].x, y: newSnake[index - 1].y };
         });
 
-        setSnake(newSnake);
+        if (isEaten) {
+            setSnake([...newSnake, {}]);
+        } else {
+            setSnake(newSnake);
+        }
     };
 
     const moveLeft = () => {
         let newSnake = [...snake];
+        let isEaten = false;
         newSnake = newSnake.map((item, index) => {
             if (index === 0) {
-                if (checkIfFoodEaten(item.x - 1, item.y)) generateFood();
+                if (checkIfFoodEaten(item.x - 1, item.y)) {
+                    generateFood();
+                    isEaten = true;
+                }
                 if (item.x - 1 === -1) return { x: 9, y: item.y };
                 return { x: item.x - 1, y: item.y };
             }
             return { x: newSnake[index - 1].x, y: newSnake[index - 1].y };
         });
 
-        setSnake(newSnake);
+        if (isEaten) {
+            setSnake([...newSnake, {}]);
+        } else {
+            setSnake(newSnake);
+        }
     };
 
     const moveUp = () => {
@@ -135,7 +166,7 @@ const App = () => {
         });
 
         if (isEaten) {
-            setSnake([...newSnake, { x: newSnake[newSnake.length - 1].x, y: newSnake[newSnake.length - 1].y + 1 }]);
+            setSnake([...newSnake, {}]);
         } else {
             setSnake(newSnake);
         }
@@ -179,13 +210,20 @@ const App = () => {
         }
     }, [state]);
 
-    setTimeout(() => {
-        setState(state + 1);
-    }, 500);
+    const game = setTimeout(() => {
+        !isGameOver && setState(state + 1);
+    }, 300);
 
     return (
         <div className='container' onKeyDown={handleKeyDown} tabIndex={0}>
             <h1>Snake Game</h1>
+            <button
+                onClick={() => {
+                    setIsGameOver(false);
+                }}
+            >
+                New Game
+            </button>
             <div
                 className='board'
                 style={{
