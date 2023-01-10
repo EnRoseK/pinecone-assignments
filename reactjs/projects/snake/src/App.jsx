@@ -20,7 +20,7 @@ const Tile = ({ x, y, isHead }) => {
         color: 'white',
     };
 
-    return <div style={style}></div>;
+    if (x !== undefined && y !== undefined) return <div style={style}></div>;
 };
 
 const App = () => {
@@ -33,7 +33,7 @@ const App = () => {
         { x: 0, y: 0 },
     ]);
     const [food, setFood] = useState({ x: 5, y: 5 });
-    const [isGameOver, setIsGameOver] = useState(false);
+    const [score, setScore] = useState(0);
 
     const randomNum = (max, min) => Math.floor(Math.random() * (max - min + 1)) + min;
 
@@ -62,14 +62,6 @@ const App = () => {
         return false;
     };
 
-    const checkGameOver = (x, y) => {
-        for (let i = 1; i < snake.length; i++) {
-            if (snake[i].x === x && snake[i].y === y) return true;
-        }
-
-        return false;
-    };
-
     const changeDirection = (movingDirection) => {
         const index = directions.indexOf(movingDirection);
         if (index !== -2) {
@@ -86,6 +78,7 @@ const App = () => {
                 if (checkIfFoodEaten(item.x, item.y + 1)) {
                     generateFood();
                     isEaten = true;
+                    setScore(score + 1);
                 }
                 if (item.y === yCells - 1) return { x: item.x, y: 0 };
                 return { x: item.x, y: item.y + 1 };
@@ -105,15 +98,10 @@ const App = () => {
         let isEaten = false;
         newSnake = newSnake.map((item, index) => {
             if (index === 0) {
-                if (checkGameOver(item.x + 1, item.y)) {
-                    clearTimeout(game);
-                    console.log('Game over');
-                    setIsGameOver(true);
-                }
-
                 if (checkIfFoodEaten(item.x + 1, item.y)) {
                     generateFood();
                     isEaten = true;
+                    setScore(score + 1);
                 }
                 if (item.x + 1 === xCells) return { x: 0, y: item.y };
                 return { x: item.x + 1, y: item.y };
@@ -136,6 +124,7 @@ const App = () => {
                 if (checkIfFoodEaten(item.x - 1, item.y)) {
                     generateFood();
                     isEaten = true;
+                    setScore(score + 1);
                 }
                 if (item.x - 1 === -1) return { x: 9, y: item.y };
                 return { x: item.x - 1, y: item.y };
@@ -158,6 +147,7 @@ const App = () => {
                 if (checkIfFoodEaten(item.x, item.y - 1)) {
                     generateFood();
                     isEaten = true;
+                    setScore(score + 1);
                 }
                 if (item.y - 1 === -1) return { x: item.x, y: 9 };
                 return { x: item.x, y: item.y - 1 };
@@ -211,19 +201,13 @@ const App = () => {
     }, [state]);
 
     const game = setTimeout(() => {
-        !isGameOver && setState(state + 1);
+        setState(state + 1);
     }, 300);
 
     return (
         <div className='container' onKeyDown={handleKeyDown} tabIndex={0}>
             <h1>Snake Game</h1>
-            <button
-                onClick={() => {
-                    setIsGameOver(false);
-                }}
-            >
-                New Game
-            </button>
+            <h2>Score: {score}</h2>
             <div
                 className='board'
                 style={{
