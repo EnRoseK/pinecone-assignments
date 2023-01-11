@@ -79,15 +79,18 @@ const App = () => {
 
     const tileHandler = (x, y) => {
         const newGame = [...game];
-        newGame[x][y] = turn;
 
-        if (isGameOver(newGame, x, y)) {
-            setIsOver(!isOver);
-            return;
+        if (newGame[x][y] === 0) {
+            newGame[x][y] = turn;
+
+            if (isGameOver(newGame, x, y)) {
+                setIsOver(!isOver);
+                return;
+            }
+
+            setTurn(turn === 'X' ? 'O' : 'X');
+            setGame(newGame);
         }
-
-        setTurn(turn === 'X' ? 'O' : 'X');
-        setGame(newGame);
     };
 
     const startGameHandler = () => {
@@ -111,7 +114,7 @@ const App = () => {
                                 onClick={() => {
                                     tileHandler(i, j);
                                 }}
-                                className='tile'
+                                className={`tile player${col}`}
                                 key={`tile-${i}-${j}`}
                             >
                                 {col !== 0 && col}
