@@ -3,78 +3,127 @@ import { useState } from 'react';
 
 const App = () => {
     const [game, setGame] = useState([
-        ['', '', ''],
-        ['', '', ''],
-        ['', '', ''],
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0],
     ]);
+    const [turn, setTurn] = useState('X');
+    const [isOver, setIsOver] = useState(false);
+    const [isDraw, setIsDraw] = useState(false);
 
-    const score = [
-        [0, 0, 0],
-        [0, 0, 0],
-        [0, 0, 0],
-    ];
+    const isOutOfMoves = (newGame) => {
+        let count = 0;
+        for (const row of newGame) {
+            for (const col of row) {
+                col === 0 && count++;
+            }
+        }
 
-    const [playerTurn, setPlayerTurn] = useState('X');
-    let moves = 9;
-    const [isGameOver, setisGameOver] = useState(false);
+        if (count === 0) {
+            setIsDraw(true);
+            return true;
+        } else {
+            return false;
+        }
+    };
 
-    const checkWinner = (x, y) => {
-        if (moves === 0) return true;
+    const checkX = (newGame, x) => {
+        for (let i = 0; i < newGame[x].length; i++) {
+            if (newGame[x][i] !== turn) return false;
+        }
+
+        return true;
+    };
+
+    const checkY = (newGame, y) => {
+        for (let i = 0; i < newGame.length; i++) {
+            if (newGame[i][y] !== turn) return false;
+        }
+
+        return true;
+    };
+
+    const checkDiagFirst = (newGame) => {
+        for (let i = 0; i < newGame.length; i++) {
+            if (newGame[i][i] !== turn) return false;
+        }
+
+        return true;
+    };
+
+    const checkDiagSecond = (newGame) => {
+        let j = newGame.length - 1;
+        for (let i = 0; i < newGame.length; i++) {
+            if (newGame[i][j] !== turn) return false;
+            j--;
+        }
+
+        return true;
+    };
+
+    const isGameOver = (newGame, x, y) => {
+        if (checkX(newGame, x)) return true;
+
+        if (checkY(newGame, y)) return true;
+
+        if (x === 1 && y === 1 && (checkDiagFirst(newGame) || checkDiagSecond(newGame))) return true;
+
+        if (x === y && checkDiagFirst(newGame)) return true;
+
+        if (Math.abs(x - y) === 2 && checkDiagSecond(newGame)) return true;
+
+        if (isOutOfMoves(newGame)) return true;
 
         return false;
     };
 
-    const clickHandler = (x, y) => {
+    const tileHandler = (x, y) => {
         const newGame = [...game];
-        newGame[x][y] = playerTurn;
-        score[x][y] = playerTurn;
-        console.log(score);
-        setGame(newGame);
-        if (checkWinner()) {
-            setisGameOver(true);
+        newGame[x][y] = turn;
+
+        if (isGameOver(newGame, x, y)) {
+            setIsOver(!isOver);
             return;
         }
-        setPlayerTurn(playerTurn === 'X' ? 'O' : 'X');
+
+        setTurn(turn === 'X' ? 'O' : 'X');
+        setGame(newGame);
+    };
+
+    const startGameHandler = () => {
+        setIsOver(false);
+        setTurn('X');
+        setGame([
+            [0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0],
+        ]);
+        setIsDraw(false);
     };
 
     return (
         <>
             <div id='gameTarget'>
-                {game.flat().map((item, index) => {
-                    const x = Math.floor(index / 3);
-                    const y = index - Math.floor(index / 3) * 3;
-
-                    return (
-                        <li
-                            className={`tile `}
-                            key={index}
-                            onClick={(e) => {
-                                moves--;
-                                e.target.classList.add(`player${playerTurn}`);
-                                clickHandler(x, y);
-                                console.log(moves);
-                            }}
-                        >
-                            {item}
-                        </li>
-                    );
+                {game.map((row, i) => {
+                    return row.map((col, j) => {
+                        return (
+                            <div
+                                onClick={() => {
+                                    tileHandler(i, j);
+                                }}
+                                className='tile'
+                                key={`tile-${i}-${j}`}
+                            >
+                                {col !== 0 && col}
+                            </div>
+                        );
+                    });
                 })}
             </div>
 
-            <div id='gameOverScreen' className={isGameOver ? 'active' : ''}>
-                <h1>Player {playerTurn} won!</h1>
-                <div
-                    id='startGame'
-                    onClick={() => {
-                        setGame([
-                            ['', '', ''],
-                            ['', '', ''],
-                            ['', '', ''],
-                        ]);
-                        setisGameOver(false);
-                        moves = 9;
-                    }}
-                >
+            <div id='gameOverScreen' className={isOver ? 'active' : ''}>
+                <h1>{isDraw ? `Draw` : `Player ${turn} won!`}</h1>
+                <div id='startGame' onClick={startGameHandler}>
                     New Game
                 </div>
             </div>
