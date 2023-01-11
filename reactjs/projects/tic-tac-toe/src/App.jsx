@@ -66,11 +66,16 @@ const App = () => {
 
         if (checkY(newGame, y)) return true;
 
-        if (x === 1 && y === 1 && (checkDiagFirst(newGame) || checkDiagSecond(newGame))) return true;
+        if (
+            x === (newGame.length - 1) / 2 &&
+            y === (newGame.length - 1) / 2 &&
+            (checkDiagFirst(newGame) || checkDiagSecond(newGame))
+        )
+            return true;
 
         if (x === y && checkDiagFirst(newGame)) return true;
 
-        if (Math.abs(x - y) === 2 && checkDiagSecond(newGame)) return true;
+        if (checkDiagSecond(newGame)) return true;
 
         if (isOutOfMoves(newGame)) return true;
 
@@ -126,6 +131,10 @@ const App = () => {
 
             <div id='gameOverScreen' className={isOver ? 'active' : ''}>
                 <h1>{isDraw ? `Draw` : `Player ${turn} won!`}</h1>
+                <select>
+                    <option value={3}>3</option>
+                    <option value={5}>5</option>
+                </select>
                 <div id='startGame' onClick={startGameHandler}>
                     New Game
                 </div>
